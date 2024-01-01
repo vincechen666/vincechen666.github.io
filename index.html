@@ -1,407 +1,492 @@
-
-
 <!DOCTYPE html>
-<html lang="en" color-mode=light>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hexo</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="google" content="notranslate" />
-  
-  
-  <meta name="author" content="John Doe">
-  <link rel="icon" href="/images/icons/favicon-16x16.png" type="image/png" sizes="16x16">
-  <link rel="icon" href="/images/icons/favicon-32x32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png" sizes="180x180">
-  <meta rel="mask-icon" href="/images/icons/stun-logo.svg" color="#333333">
-  
-    <meta rel="msapplication-TileImage" content="/images/icons/favicon-144x144.png">
-    <meta rel="msapplication-TileColor" content="#000000">
-  
-
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
-  
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf8"/>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <title>
+      
+        Hexo
+      
+    </title>
+    <meta name="description" content=""/>
+    <meta name="keywords" content=""/>
     
-<link rel="stylesheet" href="https://at.alicdn.com/t/font_1445822_p6ry5n7lrr.css">
-
-  
-
-  
+      <link rel="apple-touch-icon"
+            sizes="180x180"
+            href="/images/apple-touch-icon.png"/>
     
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-
-  
-
-  
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/images/favicon-32x32.png"/>
+    
+    
+      <link rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/images/favicon-16x16.png"/>
+    
+    
+      <link rel="mask-icon"
+            href="/images/logo.svg"
+            color=""/>
+    
+    
     
       
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/xcode.min.css" name="highlight-style" mode="light">
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/regular.ttf);
+        font-weight: regular;
+    }
+  </style>
 
-      
-        
-        
-<link rel="stylesheet" href="https://cdn.bootcss.com/highlight.js/9.18.1/styles/solarized-dark.min.css" name="highlight-style" mode="dark">
+  <style>
+    @font-face {
+        font-family:sourceHanSerif;
+        src: url(/font/bold.ttf);
+        font-weight: bold;
+    }
+  </style>
 
+
+    
+    <link rel="stylesheet"
+          type="text/css"
+          href='/css/layout.css'/>
+    
+    
+  
+  <link rel="stylesheet"
+        type="text/css"
+        href='/css/index.css'/>
+
+  <meta name="generator" content="Hexo 7.0.0"></head>
+  <body>
+    <div class="head">
+      <div class="nav">
+        <a href='/' class="nav-logo">
+          <img alt="logo" height="60px" width="60px" src="/images/logo.svg"/>
+        </a>
+        <input id="navBtn" type="checkbox"/>
+        <div class="nav-menu">
+          
+            
+              <a class="nav-menu-item" href="/feat">特性测试</a>
+            
+              <a class="nav-menu-item" href="/base">基础测试</a>
+            
+          
+          
+        </div>
+        <label class="nav-btn" for="navBtn"></label>
+      </div>
+    </div>
+    <div class="body">
       
+  <div class="wall wall-index">
+    <div class="wall-main" id="wall-main">
+      <div class="wall-title">HEXO</div>
+      <div class="wall-subtitle"></div>
+      <div class="wall-description">“宁静致远”</div>
+    </div>
+    <div class="wall-bg">
+      <div class="wall-bg-index">
+        <div class="hello-world">
+          <div>> Hello world</div>
+          <div class="cursor"></div>
+        </div>
+        <div class="normal-eqt">
+          <img alt="normal" width="300px" height="" src="/images/normal.svg"/>
+        </div>
+        <canvas width="400" height="400" id="heart-curve"></canvas>
+        <div class="motto">长风破浪会有时！</div>
+        <div class="poem">
+          
+            君不见高堂明镜悲白发
+            <br/>
+          
+            朝如青丝暮成雪
+            <br/>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about">
+    <div class="about-photo"
+         style="background-image: url(/images/about.jpg)"></div>
+    <div class="about-text">
+      <div class="about-title">
+        
+          <div class="matts">关</div>
+        
+          <div class="matts">于</div>
+        
+      </div>
+      <div class="about-detail">
+        <div class="about-text-p">
+          
+            
+              酒入豪肠,七分酿成了月光
+              <br/>
+            
+          
+            
+              <br/>
+            
+          
+            
+              余下的三分啸成剑气
+              <br/>
+            
+          
+            
+              <br/>
+            
+          
+            
+              绣口一吐就半个盛唐
+              <br/>
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div class="timeline">
+      <div class="timeline-head">
+        <div class="title">时间线</div>
+        <div class="radio-wrapper">
+          
+            <div class="radio">
+              <input id="radio-article"
+                     type="checkbox"
+                     />
+              <label class="radio-skin--article" for="radio-article"></label>
+            </div>
+          
+            <div class="radio">
+              <input id="radio-app"
+                     type="checkbox"
+                     checked/>
+              <label class="radio-skin--app" for="radio-app"></label>
+            </div>
+          
+            <div class="radio">
+              <input id="radio-event"
+                     type="checkbox"
+                     />
+              <label class="radio-skin--event" for="radio-event"></label>
+            </div>
+          
+        </div>
+      </div>
+      <div class="timeline-body">
+        <div class="timeline-item-first">
+          <div class="line-anchor line-anchor--now"></div>
+        </div>
+        <div class="timeline-list" id="timeline-list"></div>
+        <div class="timeline-item-last">
+          <div class="line-anchor line-anchor--end"></div>
+        </div>
+      </div>
+    </div>
   
 
-  <script>
-    var CONFIG = window.CONFIG || {};
-    var ZHAOO = window.ZHAOO || {};
-    CONFIG = {
-      isHome: true,
-      fancybox: true,
-      pjax: false,
-      loading: {
-        gif: '/images/theme/loading.gif',
-        lottie: ''
-      },
-      lazyload: {
-        enable: true,
-        only_post: 'false',
-        loading: {
-          gif: '/images/theme/loading.gif',
-          lottie: ''
-        }
-      },
-      donate: {
-        enable: true,
-        alipay: 'https://pic.izhaoo.com/alipay.jpg',
-        wechat: 'https://pic.izhaoo.com/wechat.jpg'
-      },
-      galleries: {
-        enable: true
-      },
-      fab: {
-        enable: true,
-        always_show: false
-      },
-      carrier: {
-        enable: true
-      },
-      daovoice: {
-        enable: false
-      },
-      preview: {
-        background: {
-          default: '',
-          api: ''
-        },
-        motto: {
-          default: '我在开了灯的床头下，想问问自己的心啊。',
-          typing: true,
-          api: 'https://v2.jinrishici.com/one.json',
-          data_contents: '["data","content"]'
-        },
-      },
-      qrcode: {
-        enable: true,
-        type: 'url',
-        image: 'https://pic.izhaoo.com/weapp-code.jpg',
-      },
-      toc: {
-        enable: true
-      },
-      scrollbar: {
-        type: 'default'
-      },
-      notification: {
-        enable: false,
-        delay: 4500,
-        list: '',
-        page_white_list: '',
-        page_black_list: ''
-      },
-      search: {
-        enable: false,
-        path: ''
+    </div>
+    <div class="foot">
+      <div class="foot-inner">
+        <div class="foot__head">
+          
+            <div class="foot-line">
+              
+                <div class="matts">海</div>
+              
+                <div class="matts">内</div>
+              
+                <div class="matts">存</div>
+              
+                <div class="matts">知</div>
+              
+                <div class="matts">己</div>
+              
+            </div>
+          
+            <div class="foot-line">
+              
+                <div class="matts">天</div>
+              
+                <div class="matts">涯</div>
+              
+                <div class="matts">若</div>
+              
+                <div class="matts">比</div>
+              
+                <div class="matts">邻</div>
+              
+            </div>
+          
+        </div>
+        <div class="foot__body">
+          
+            <div class="foot-item">
+              <div class="foot-item__head">朋友</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg"/>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">Theme Tranquility</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/icon/icon-link.svg"/>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://hozen.site">浩然的主页</a>
+                  </div>
+                
+                <div class="text">
+                  <img alt="link" height="20px" width="20px" src="/images/icon/icon-link+.svg"/>
+                  <a class="foot-link"
+                     href="mailto:example@email.com?subject=%E7%94%B3%E8%AF%B7%20Hozen.site%20%E7%9A%84%E5%8F%8B%E9%93%BE%E4%BD%8D%E7%BD%AE">
+                  申请友链</a>
+                </div>
+              </div>
+            </div>
+          
+          
+            <div class="foot-item">
+              <div class="foot-item__head">账号</div>
+              <div class="foot-item__body">
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-github.svg"/>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://github.com/hooozen">hooozen</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-wx.svg"/>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI3NzQ4NDkzNg==&mid=2247484469&idx=1&sn=8a442bb67397f52cce5c38c3f9b41e36&chksm=eb64c0d2dc1349c40d2e1bb55615ae28b3f2951be22f00717b9ade98c851082e42dc666ab45d#rd">谁在胡言乱语</a>
+                  </div>
+                
+                  <div class="text">
+                    <img alt="link" height="20px" width="20px" src="/images/logo-zh.svg"/>
+                    <a class="foot-link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/hozen">Mundooo</a>
+                  </div>
+                
+              </div>
+            </div>
+          
+          <div class="foot-item">
+            <div class="foot-item__head">联系</div>
+            <div class="foot-item__body">
+              <div class="text">
+                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg"/>
+                <a class="foot-link" href="mailto:example@email.com">example@email.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <a href="http://example.com">Hexo</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
+          <svg width="20" height="20" viewBox="0 0 725 725">
+            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z"/>
+            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z"/>
+            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z"/>
+          </svg>
+          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
+        </div>
+      </div>
+    </div>
+    
+    
+  <script type="text/javascript">
+  function HeartCurve(w, h) {
+    this.w = w;
+    this.h = h;
+    this.a = undefined;
+    this.ctx = undefined;
+    this.deg = 0;
+    this.speed = 0.4;
+    this.isPause = false;
+    this.init();
+  }
+  HeartCurve.prototype.init = function () {
+    const {
+      w,
+      h
+    } = this;
+    const canvas = document.querySelector('#heart-curve');
+    if (!canvas) throw Error('no canvas element!');
+
+    this.ctx = canvas.getContext('2d');
+    this.ctx.translate(2 * w / 3, h / 2);
+    this.ctx.lineJoin = 'round';
+    this.a = w / 6.2;
+    this.id = null;
+    return this;
+  };
+  HeartCurve.prototype._drawAxis = function () {
+    const {
+      ctx,
+      w,
+      h
+    } = this;
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "#999";
+    ctx.beginPath();
+    ctx.moveTo(-w * 2 / 3, 0);
+    ctx.lineTo(w / 3, 0);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(0, -h * 0.48);
+    ctx.lineTo(0, h * 0.48);
+    ctx.stroke();
+  };
+  HeartCurve.prototype._drawCure = function () {
+    const {
+      ctx,
+      a
+    } = this;
+    ctx.beginPath();
+    let x, y, deg = 0;
+    ctx.moveTo(0, 0);
+    ctx.strokeStyle = "#ff0000";
+    while (deg <= 360) {
+      const theta = deg / 180 * Math.PI;
+      r = 2 * a * (1 - Math.cos(theta));
+      x = r * Math.cos(theta);
+      y = r * Math.sin(theta);
+      ctx.lineTo(x, y);
+      deg++;
+    }
+    ctx.stroke();
+  };
+  HeartCurve.prototype.spin = function () {
+    let {
+      a,
+      w,
+      h,
+      deg,
+      ctx
+    } = this;
+    if (deg >= 360) deg = 0;
+
+    ctx.clearRect(-w / 3 * 2, -h / 2, w, h);
+    const theta = deg / 180 * Math.PI;
+    this._drawAxis();
+    ctx.lineWidth = 2;
+    this._drawCure();
+    ctx.strokeStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(-a, 0, a, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(2 * a * Math.cos(theta) - a, 2 * a * Math.sin(theta), a, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    let r = 2 * a * (1 - Math.cos(theta));
+    let x = r * Math.cos(theta);
+    let y = r * Math.sin(theta);
+    ctx.arc(x, y, 3, 0, 2 * Math.PI);
+    ctx.fill();
+    if (this.isPause) return;
+
+    this.deg = deg + this.speed;
+    this.id = window.requestAnimationFrame(this.spin.bind(this));
+  };
+  HeartCurve.prototype.pause = function () {
+    this.isPause = true;
+    if (window.cancelAnimationFrame) {
+      window.cancelAnimationFrame(this.id);
+    }
+  };
+  HeartCurve.prototype.resume = function () {
+    this.isPause = false;
+    this.spin();
+  };
+
+  (function () {
+    const heartCurve = new HeartCurve(400, 400);
+    heartCurve.spin();
+    mobileAdjust(window.matchMedia("(hover:none"));
+    window.matchMedia("(hover:none)").addListener(mobileAdjust);
+
+    function mobileAdjust(media) {
+      const wallEl = document.querySelector('#wall-main')
+      if (!media.matches) {
+        heartCurve.pause();
+        wallEl.addEventListener('mouseenter', () => {
+          console.log('resume');
+          heartCurve.resume();
+        });
+        wallEl.addEventListener('mouseleave', () => {
+          console.log('pause');
+          heartCurve.pause();
+        });
       }
     }
-  </script>
+  })();
+</script>
+  
+  
+  <script type="text/javascript">
+    const timelineData = {"types":["article","app","event"],"posts":[]}
+    const {types, posts} = timelineData
+    listEl = document.querySelector("#timeline-list");
+
+    elRefs = getElRefs(types)
+    bindListener(types, elRefs)
+
+    setTimeout(init.bind(this, types, elRefs))
+
+    function getElRefs(types) {
+      return types.map(type => document.querySelector(`#radio-${type}`))
+    }
+
+    function bindListener(names, els) {
+      names.map((name, i) => els[i].addEventListener('change', e => updateList(name, e.target.checked)))
+    }
+
+    function updateList(type, value) {
+      listDom
+        .filter(line => line.type === type)
+        .forEach(line => {
+          line.el.className = line
+            .el
+            .className
+            .replace(
+              /(--hidden)?$/, value
+              ? ""
+              : "--hidden");
+        });
+    }
+
+    const listDom = posts.map(t => getLine(t));
+    listEl.append(...listDom.map(i => i.el));
+
+    function getLine(data) {
+      const item = document.createElement("DIV");
+      item.className = `timeline-item-${data.type} timeline-item--hidden`;
+      item.innerHTML = `
+                          <div class="line-date">
+                          <div class="line-date-tag">${data.date}</div></div>
+                          <div class="line-anchor"></div>
+                          <div class="line-title">
+                              <img class="text-icon" src="${data.icon}"/><a class="timeline-post" href="${data.path}">${data.title}</a>
+                          </div>
+                          `;
+      return {el: item, type: data.type};
+    };
+
+    function init(names, els) {
+      names.map((name, i) => updateList(name, els[i].checked))
+    }
+  </script >
 
   
 
-  
-
-<meta name="generator" content="Hexo 7.0.0"></head>
-
-<body class="lock-screen">
-  <div class="loading" id="loading"></div>
-  
-    
-
-
-  <nav class="navbar">
-    <div class="left">
-      
-      
-        <i class="iconfont iconqrcode j-navbar-qrcode"></i>
-      
-      
-        <i class="iconfont iconmoono" id="color-toggle" color-toggle="light"></i>
-      
-      
-    </div>
-    <div class="center"> </div>
-    <div class="right">
-      <i class="iconfont iconmenu j-navbar-menu"></i>
-    </div>
-    
-      <div id="qrcode-navbar"></div>
-    
-  </nav>
-
-  
-  
-
-<nav class="menu">
-  <div class="menu-container">
-    <div class="menu-close">
-      <i class="iconfont iconbaseline-close-px"></i>
-    </div>
-    <ul class="menu-content"><li class="menu-item">
-        <a href="/ " class="underline active"> 首页</a>
-      </li><li class="menu-item">
-        <a href="/galleries/ " class="underline "> 摄影</a>
-      </li><li class="menu-item">
-        <a href="/archives/ " class="underline "> 归档</a>
-      </li><li class="menu-item">
-        <a href="/tags/ " class="underline "> 标签</a>
-      </li><li class="menu-item">
-        <a href="/categories/ " class="underline "> 分类</a>
-      </li><li class="menu-item">
-        <a href="/about/ " class="underline "> 关于</a>
-      </li></ul>
-    
-      <div class="menu-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-    
-  </div>
-</nav>
-  <main id="main">
-  
-    <div class="preview">
-  <!-- <nav class="navbar j-navbar-menu">
-    <i class="iconfont iconmenu"></i>
-  </nav> -->
-  <div class="preview-image">
-    
-        
-              <div class="preview-overlay">
-                <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                  viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                  <defs>
-                    <path id="gentle-wave"
-                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                  </defs>
-                  <g class="preview-parallax">
-                    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(var(--color-background-rgb),0.7"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(var(--color-background-rgb),0.5)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(var(--color-background-rgb),0.3)"></use>
-                    <use xlink:href="#gentle-wave" x="48" y="7" fill="var(--color-background)"></use>
-                  </g>
-                </svg>
-              </div>
-              
-  </div>
-  <div class="preview-motto-wrapper">
-    <h2 class="preview-motto" id="motto">
-      
-    </h2>
-    
-      <span class="preview-cursor">_</span>
-      
-  </div>
-  <div class="preview-scroll">
-    <a href="#container" class="smooth-scroll"><i class="iconfont iconMouse"></i></a>
-  </div>
-</div>
-  
-  <div class="container" id="container">
-    <section class="row post">
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2023/12/20/%E6%97%85%E8%A1%8C%E8%AE%B0%E2%80%94%E2%80%94%E7%B4%A7%E9%97%AD/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2023/12/20/%E6%97%85%E8%A1%8C%E8%AE%B0%E2%80%94%E2%80%94%E7%B4%A7%E9%97%AD/" title="旅行记——紧闭" >旅行记——紧闭</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">飞机开始颠簸了，机舱外是白茫茫晃瞎眼的一片光，嵌在右侧庞大的机翼之上，仔细一看机翼写着b-206j。右侧的女生睡了全程，被轻微的颠簸震醒，揉了揉双眼，开始拨弄手上的安全带。身处在这样的密室之中，...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 20, 2023</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-    
-
-<div class="col-lg-4 col-md-6 col-sm-12 post-item">
-  <div class="post-wrap">
-    
-    <a href="/2023/12/20/%E9%85%92%E5%90%A7%E9%95%BF%E8%B0%88%E5%90%8E/" class="post-image">
-      <img   class="lazyload" data-original="/images/theme/post-image.jpg" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg=="  draggable="false">
-    </a>
-    <div class="post-content">
-      <div class="post-content-wrap">
-        <h3 class="post-title"><a href="/2023/12/20/%E9%85%92%E5%90%A7%E9%95%BF%E8%B0%88%E5%90%8E/" title="酒吧长谈后" >酒吧长谈后</a></h3>
-        <div class="post-excerpt">
-          <p class="substr-3">“小萨，你是什么时候开始倒霉的，”他想，放下手上厚厚的688页的《酒吧长谈》，眼前弥散的烟雾随着叹气声撕裂，化为虚空。一幕幕往事像回忆在他的脑中轮转，他抓起酒杯一饮而尽——“是在父母的劝说下，毅...</p>
-        </div>
-      </div>
-      <div class="post-info">
-        <span class="post-info-item"><i class="iconfont iconcalendar"></i>December 20, 2023</span>
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-  
-</section>
-    <section class="paginator">
-  
-</section>
-  </div>
-</main>
-  
-
-<footer class="footer">
-  <div class="footer-social"><a 
-        href="tencent://message/?Menu=yes&uin=894519210 "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#12B7F5'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconQQ "></i>
-      </a><a 
-        href="javascript:; "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#09BB07'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconwechat-fill "></i>
-      </a><a 
-        href="https://www.instagram.com/izhaoo/ "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#DA2E76'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconinstagram "></i>
-      </a><a 
-        href="https://github.com/zhaoo "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color= '#9f7be1'" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  icongithub-fill "></i>
-      </a><a 
-        href="mailto:izhaoo@163.com "
-        target="_blank"
-        class="footer-social-item"
-        onMouseOver="this.style.color=#FF3B00" 
-        onMouseOut="this.style.color='#33333D'">
-          <i class="iconfont  iconmail"></i>
-      </a></div>
-  
-    <div class="footer-copyright"><p>Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme - <a target="_blank" href="https://github.com/izhaoo/hexo-theme-zhaoo">zhaoo</a></p></div>
-  
-</footer>
-  
-      <div class="fab fab-plus">
-    <i class="iconfont iconplus"></i>
-  </div>
-  
-  
-  
-  <div class="fab fab-up">
-    <i class="iconfont iconcaret-up"></i>
-  </div>
-  
-  
-  
-    
-<script src="/js/color-mode.js"></script>
-
-  
-  
-</body>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
-
-
-
-
-  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-
-
-
-
-
-
-  
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-
-
-
-
-<script src="/js/utils.js"></script>
-<script src="/js/script.js"></script>
-
-
-
-
-
-
-
-  <script>
-    (function () {
-      var bp = document.createElement('script');
-      var curProtocol = window.location.protocol.split(':')[0];
-      if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-      } else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-      }
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(bp, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
+  </body>
 </html>
