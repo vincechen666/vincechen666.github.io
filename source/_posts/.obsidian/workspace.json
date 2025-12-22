@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "81c68c14c3603941",
+        "id": "c48228091e9d22b6",
         "type": "tabs",
         "children": [
           {
-            "id": "7d8d5b5061e3d736",
+            "id": "4ae94aede7dac9fe",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
-              "state": {
-                "aFile": "source/_posts/.obsidian/community-plugins.json",
-                "bFile": "source/_posts/.obsidian/community-plugins.json",
-                "aRef": ""
-              },
-              "icon": "diff",
-              "title": "Diff: community-plugins.json"
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
             }
           }
         ]
@@ -156,13 +152,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "测试.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "测试 的大纲"
+              "title": "大纲"
             }
           },
           {
@@ -194,7 +189,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7d8d5b5061e3d736",
+  "active": "d83af543c9d4871f",
   "lastOpenFiles": [
     "测试.md",
     "愤怒的葡萄.md",
