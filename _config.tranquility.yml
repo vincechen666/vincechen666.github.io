@@ -15,12 +15,12 @@ subpage: # 开启“子页”功能，详见 README
   pages:
     - name: book # 文章的分类（category）名，如 developer
       path: book # 若不设置则默认使用 name
-      title: 刻舟求剑 # 菜单名，如 开发者
+      title: 技术 # 菜单名，如 开发者
       icon: /images/icon/icon-book-2.svg # 图标的路径
       description: 刻舟求剑，只是船身的一道又一道愚人刻痕，我们想用它来找掉落时间大河里的某物 # 描述
     - name: article # 文章的分类（category）名，如 developer
       path: article # 若不设置则默认使用 name
-      title: 逸笔幻梦 # 菜单名，如 开发者
+      title: 人文 # 菜单名，如 开发者
       icon: /images/icon/icon-article-2.svg # 图标的路径
       description: 个人作品集 # 描述
 
@@ -103,7 +103,7 @@ baidu_analytics: # <app_id>
 # 可以通过替换 _font/ 目录下的字体文件替换自己喜欢的字体
 zh_font:
   enable: true
-  fontName: sourceHanSerif
+  fontName: SourceHanSansCN-Medium
   type: ttf
   style:
     - regular
