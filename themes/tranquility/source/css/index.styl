@@ -148,50 +148,120 @@ for item in hexo-config('timeline.items') {
   }
 }
 
+// 新的 About 容器样式
 .about {
-  max-width: 900px;
-  margin: 200px auto;
+  max-width: 1200px;
+  margin: 100px auto;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.about-photo {
-  width: 300px;
-  height: 450px;
-  background: url('') center center / cover no-repeat;
-  margin: 0 10px;
-  transition: all 200ms ease-out;
-
-  &:hover {
-    box-shadow: 0 0 14px 0 $anchor-border;
-    transform: translateY(-4px);
-  }
-}
-
-.about-text {
-  font-weight: bold;
-  font-family: sourceHanSerif;
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .about-title {
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
-  margin: 40px 0;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  // 保持原有字体风格
+  font-family: sourceHanSerif, serif; 
 }
 
-.about-detail {
-  font-size: 20px;
-  line-height: 2em;
-  letter-spacing: 0.3em;
-  margin: 0 10px;
+.about-subtitle {
+  font-size: 18px;
+  color: #666;
+  letter-spacing: 0.1em;
+}
+
+// 卡片网格容器
+.about-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+// 单个卡片样式
+.card {
+  background: #fff;
+  border-radius: 16px;
+  width: 350px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); // 柔和的阴影
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
-.about-text-p {
-  padding: 20px 10px;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+// 卡片顶部图片
+.card-image {
+  width: 100%;
+  height: 240px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// 卡片内容区
+.card-content {
+  padding: 30px;
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+// 引用符号样式
+.card-quote {
+  font-size: 60px;
+  line-height: 1;
+  color: #eee; // 浅灰色的大引号
+  font-family: serif;
+  margin-bottom: -20px;
+  margin-left: -5px;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+  z-index: 1; // 确保文字在引号上方
+}
+
+.card-author {
+  margin-top: auto;
+  text-align: right;
+  font-weight: bold;
+  color: #999;
+  font-size: 14px;
+}
+
+// 移动端适配
+@media screen and (max-width: 768px) {
+  .about-title {
+    font-size: 32px;
+  }
+  
+  .about-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .timeline {

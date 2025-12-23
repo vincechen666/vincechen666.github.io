@@ -30,14 +30,20 @@ index: # 配置首页个性化内容
     - 君不见高堂明镜悲白发
     - 朝如青丝暮成雪
   photo: /images/about.jpg
+  index:
   about:
-    title: 喧嚣
-    text:
-      - 三十五年了
-      -
-      - 我置身在废纸堆中
-      -
-      - 这是我的love story
+    title: "See what all the talk is about!"
+    subtitle: "Transformative Client experience from all around the globe"
+    cards:
+      - name: "Sarah, Kickflip"
+        photo: "/images/person1.jpg" # 请确保图片路径存在
+        text: "He is super fast and creative, delivered the website design within a week. Highly skilled and professional designer!"
+      - name: "Martha, Unicell"
+        photo: "/images/person2.jpg"
+        text: "Impressed by the Professionalism and attention to details in UI design. Highly Recommended!"
+      - name: "Victor, Horizone"
+        photo: "/images/person3.jpg"
+        text: "A Seamless experience from start to finish. Josh made our app design and experience really impressive."
 
 foot:
   title:

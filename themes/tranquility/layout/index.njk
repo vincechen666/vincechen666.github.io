@@ -36,26 +36,27 @@
     </div>
   </div>
   <div class="about">
-    <div class="about-photo"
-         style="background-image: url({{ url_for(theme.index.photo) }})"></div>
-    <div class="about-text">
+  <div class="about-header">
       <div class="about-title">
-        {% for word in theme.index.about.title %}
-          <div class="matts">{{ word }}</div>
-        {% endfor %}
+        {{ theme.index.about.title | default("See what all the talk is about!") }}
       </div>
-      <div class="about-detail">
-        <div class="about-text-p">
-          {% for line in theme.index.about.text %}
-            {% if not line %}
-              <br/>
-            {% else %}
-              {{ line }}
-              <br/>
-            {% endif %}
-          {% endfor %}
+      <div class="about-subtitle">
+        {{ theme.index.about.subtitle }}
+      </div>
+    </div>
+    <div class="about-cards">
+      {% for item in theme.index.about.cards %}
+        <div class="card">
+          <div class="card-image" style="background-image: url({{ url_for(item.photo) }})"></div>
+          <div class="card-content">
+            <div class="card-quote">“</div>
+            <div class="card-text">
+              {{ item.text }}
+            </div>
+            <div class="card-author">— {{ item.name }}</div>
+          </div>
         </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
   {% if theme.timeline and theme.timeline.enable %}
