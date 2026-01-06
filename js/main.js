@@ -90,6 +90,7 @@
 
                 if (filter === 'all' || category === filter) {
                     item.style.display = 'block';
+                    item.style.opacity = '1';
                     item.style.animation = 'fadeInUp 0.5s ease';
                 } else {
                     item.style.display = 'none';
@@ -118,6 +119,7 @@
 
                 if (filter === 'all' || type === filter) {
                     card.style.display = 'block';
+                    card.style.opacity = '1';
                     card.style.animation = 'fadeInUp 0.5s ease';
                 } else {
                     card.style.display = 'none';
@@ -183,11 +185,18 @@
                     return;
                 }
 
-                // Fallback placeholder with gradient and text
                 const width = this.getAttribute('width') || 800;
                 const height = this.getAttribute('height') || 600;
                 const alt = this.getAttribute('alt') || '图片';
-                this.src = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23667eea;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23764ba2;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="${width}" height="${height}"/%3E%3Ctext fill="%23ffffff" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="24"%3E${encodeURIComponent(alt)}%3C/text%3E%3C/svg%3E`;
+
+                // If this is a photography (portfolio) image, use GitHub image by title
+                const inPortfolio = this.closest('.portfolio-item') !== null;
+                if (inPortfolio) {
+                    this.src = `https://raw.githubusercontent.com/vincechen666/pic/master/${encodeURIComponent(alt)}.jpg`;
+                } else {
+                    // Fallback placeholder with gradient and text
+                    this.src = `data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"%3E%3Cdefs%3E%3ClinearGradient id="grad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%23667eea;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23764ba2;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23grad)" width="${width}" height="${height}"/%3E%3Ctext fill="%23ffffff" x="50%25" y="50%25" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="24"%3E${encodeURIComponent(alt)}%3C/text%3E%3C/svg%3E`;
+                }
                 this.classList.add('image-fallback');
             });
         });
