@@ -18,9 +18,10 @@
         </div>
 
         <div class="portfolio-grid">
-            <% site.posts.sort('date', -1).limit(6).forEach(function(post) { %>
+            <% site.posts.filter(function(post) { return post.photos && post.photos.length > 0; }).sort('date', -1).limit(6).forEach(function(post) { %>
             <% if (post.photos && post.photos.length > 0) { %>
-            <article class="portfolio-item" data-category="<%= post.category %>">
+            <% var portfolioCategory = (post.categories && post.categories.length ? post.categories.first().slug : (post.category || '')); %>
+            <article class="portfolio-item" data-category="<%= portfolioCategory %>">
                 <a href="<%= url_for(post.path) %>">
                     <img src="<%= post.photos[0] %>" alt="<%= post.title %>" loading="lazy">
                 </a>
