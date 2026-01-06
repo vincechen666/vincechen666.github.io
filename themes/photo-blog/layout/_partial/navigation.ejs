@@ -1,0 +1,17 @@
+<nav class="navbar" role="navigation">
+    <div class="container">
+        <a href="<%= url_for('/') %>" class="logo"><%= config.title %></a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu">
+            <% Object.keys(theme.menu).forEach(function(key) { %>
+            <li><a href="<%= url_for(theme.menu[key]) %>" class="nav-link"><%= key %></a></li>
+            <% }); %>
+        </ul>
+    </div>
+</nav>

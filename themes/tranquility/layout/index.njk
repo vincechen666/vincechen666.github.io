@@ -11,7 +11,10 @@
 {% block body %}
   <div class="wall wall-index">
     <div class="wall-main" id="wall-main">
-      <div class="wall-title">{{ config.title | upper }}</div>
+      <div class="hero-kicker">
+        {{ theme.index.badge | default('New Platform') }}
+      </div>
+      <div class="wall-title">{{ config.title }}</div>
       <div class="wall-subtitle">{{ config.subtitle }}</div>
       <div class="wall-description">{{ theme.slogan }}</div>
     </div>

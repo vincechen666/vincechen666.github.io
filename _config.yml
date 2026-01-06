@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Loafer
+title: CyCai
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: VinceBarry
 language: en
 timezone: ''
 
@@ -96,7 +96,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: tranquility
+theme: photo-blog
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment

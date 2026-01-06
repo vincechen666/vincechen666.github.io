@@ -1,0 +1,63 @@
+<article class="post-full">
+    <div class="container">
+        <div class="post-header">
+            <div class="post-meta">
+                <span class="post-category"><%= page.category || '未分类' %></span>
+                <span class="post-date"><%= date(page.date, 'YYYY-MM-DD') %></span>
+            </div>
+            <h1 class="post-title"><%= page.title %></h1>
+            <% if (page.tags && page.tags.length > 0) { %>
+            <div class="post-tags">
+                <% page.tags.forEach(function(tag) { %>
+                <a href="<%= url_for(tag.path) %>" class="tag">#<%= tag.name %></a>
+                <% }); %>
+            </div>
+            <% } %>
+        </div>
+
+        <% if (page.thumbnail || (page.photos && page.photos.length > 0)) { %>
+        <div class="post-thumbnail">
+            <img src="<%= page.thumbnail || page.photos[0] %>" alt="<%= page.title %>">
+        </div>
+        <% } %>
+
+        <div class="post-content">
+            <%- page.content %>
+        </div>
+
+        <% if (theme.comments.enable) { %>
+        <div class="post-comments">
+            <%- partial('_partial/comments') %>
+        </div>
+        <% } %>
+
+        <div class="post-navigation">
+            <% if (page.prev) { %>
+            <a class="post-nav-prev" href="<%= url_for(page.prev.path) %>">
+                <span class="post-nav-label">← 上一篇</span>
+                <span class="post-nav-title"><%= page.prev.title %></span>
+            </a>
+            <% } %>
+            <% if (page.next) { %>
+            <a class="post-nav-next" href="<%= url_for(page.next.path) %>">
+                <span class="post-nav-label">下一篇 →</span>
+                <span class="post-nav-title"><%= page.next.title %></span>
+            </a>
+            <% } %>
+        </div>
+    </div>
+</article>
+
+<!-- Related Posts -->
+<% if (page.tags && page.tags.length > 0) { %>
+<section class="related-posts">
+    <div class="container">
+        <div class="section-header">
+            <h3>相关文章</h3>
+        </div>
+        <div class="related-posts-grid">
+            <%- list_posts({limit: 3, sortBy: 'date', order: -1, tags: page.tags.map(t => t.name).join(',')}) %>
+        </div>
+    </div>
+</section>
+<% } %>

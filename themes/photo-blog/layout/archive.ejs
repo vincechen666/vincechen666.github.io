@@ -1,0 +1,65 @@
+<div class="archive-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>归档</h1>
+            <p class="lead">共 <%= site.posts.length %> 篇文章</p>
+        </div>
+
+        <div class="archive-list">
+            <% let lastYear = null %>
+            <% page.posts.each(function(post) { %>
+            <% let currentYear = date(post.date, 'YYYY') %>
+            <% if (currentYear !== lastYear) { %>
+            <% if (lastYear) { %>
+            </div>
+            <% } %>
+            <div class="archive-year">
+                <a href="javascript:void(0)" class="archive-year-main">
+                    <div class="archive-year-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="archive-year-info">
+                        <h2 class="archive-year-name"><%= currentYear %></h2>
+                        <div class="archive-year-meta">
+                            <span class="archive-year-count"><%= site.posts.filter(p => date(p.date, 'YYYY') === currentYear).length %> 篇文章</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="archive-year-posts">
+            <% } %>
+                    <article class="archive-post-item">
+                        <span class="archive-post-date"><%= date(post.date, 'MM-DD') %></span>
+                        <a href="<%= url_for(post.path) %>" class="archive-post-title"><%= post.title %></a>
+                        <% if (post.category) { %>
+                        <span class="archive-post-category"><%= post.category %></span>
+                        <% } %>
+                    </article>
+            <% lastYear = currentYear %>
+            <% }); %>
+            <% if (lastYear) { %>
+                </div>
+            </div>
+            <% } %>
+        </div>
+
+        <% if (page.posts.length === 0) { %>
+        <div class="empty-state">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <h3>暂无文章</h3>
+            <p>还没有发布任何文章，开始撰写你的第一篇博客吧！</p>
+        </div>
+        <% } %>
+
+        <%- partial('_partial/pagination') %>
+    </div>
+</div>

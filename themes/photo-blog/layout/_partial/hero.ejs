@@ -1,0 +1,16 @@
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1><%= theme.hero.title %></h1>
+            <p class="lead"><%= theme.hero.subtitle %></p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <% theme.hero.cta_text.forEach(function(cta) { %>
+                <a href="<%= url_for(cta.url) %>" class="btn <%= cta.text.includes('作品') ? 'btn-primary' : 'btn-secondary' %>"><%= cta.text %></a>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+    <% if (theme.hero.background_image) { %>
+    <img src="<%= url_for(theme.hero.background_image) %>" alt="Hero Background" class="hero-image">
+    <% } %>
+</section>

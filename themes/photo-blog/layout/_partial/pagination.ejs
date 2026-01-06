@@ -1,0 +1,21 @@
+<%
+if (page.total > 1) {
+    var prevUrl = page.prev_link ? page.prev_link : '#';
+    var nextUrl = page.next_link ? page.next_link : '#';
+%>
+<div class="pagination">
+    <% if (page.prev) { %>
+    <a href="<%= url_for(prevUrl) %>" class="pagination-prev"><%= theme.pagination.prev %></a>
+    <% } else { %>
+    <span class="pagination-prev disabled"><%= theme.pagination.prev %></span>
+    <% } %>
+
+    <span class="pagination-info">第 <%= page.current %> / <%= page.total %> 页</span>
+
+    <% if (page.next) { %>
+    <a href="<%= url_for(nextUrl) %>" class="pagination-next"><%= theme.pagination.next %></a>
+    <% } else { %>
+    <span class="pagination-next disabled"><%= theme.pagination.next %></span>
+    <% } %>
+</div>
+<% } %>

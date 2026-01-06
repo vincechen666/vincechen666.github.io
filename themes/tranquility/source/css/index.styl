@@ -70,6 +70,85 @@ for item in hexo-config('timeline.items') {
   letter-spacing: 0.2em;
 }
 
+// =========================
+// Index hero (wall-index)
+// =========================
+
+.wall.wall-index {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 64px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  column-gap: 80px;
+  align-items: center;
+}
+
+.wall-index .wall-main {
+  margin-top: 0;
+  text-align: left;
+  cursor: default;
+}
+
+.hero-kicker {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #4169e1;
+  margin-bottom: 24px;
+}
+
+.wall-index .wall-title {
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+  animation: none;
+}
+
+.wall-index .wall-subtitle {
+  font-size: 72px;
+  font-weight: 800;
+  margin-top: 0;
+}
+
+.wall-index .wall-description {
+  margin-top: 40px;
+  max-width: 480px;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+}
+
+.wall-index .wall-bg {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wall-index .wall-bg::before {
+  content: none;
+}
+
+.wall-bg-index {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 4 / 3;
+  border-radius: 64px;
+  background-color: #4473d9;
+  overflow: hidden;
+}
+
+.wall-index #heart-curve,
+.wall-index .hello-world,
+.wall-index .normal-eqt,
+.wall-index .motto,
+.wall-index .poem {
+  display: none;
+}
+
 #heart-curve {
   position: absolute;
   right: 0;

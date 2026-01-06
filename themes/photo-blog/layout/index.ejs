@@ -1,0 +1,98 @@
+<%- partial('_partial/hero') %>
+
+<!-- Portfolio Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">作品集</span>
+            <h2>摄影作品</h2>
+            <p class="lead">记录光影，定格瞬间</p>
+        </div>
+
+        <div class="category-filters">
+            <% theme.portfolio_categories.forEach(function(cat) { %>
+            <button class="filter-btn <%= cat.slug === 'all' ? 'active' : '' %>" data-filter="<%= cat.slug %>">
+                <%= cat.name %>
+            </button>
+            <% }); %>
+        </div>
+
+        <div class="portfolio-grid">
+            <% site.posts.sort('date', -1).limit(6).forEach(function(post) { %>
+            <% if (post.photos && post.photos.length > 0) { %>
+            <article class="portfolio-item" data-category="<%= post.category %>">
+                <a href="<%= url_for(post.path) %>">
+                    <img src="<%= post.photos[0] %>" alt="<%= post.title %>" loading="lazy">
+                </a>
+                <div class="portfolio-overlay">
+                    <h3><%= post.title %></h3>
+                    <p><%= date(post.date, 'YYYY') %> · <%= post.category || '未分类' %></p>
+                </div>
+            </article>
+            <% } %>
+            <% }); %>
+        </div>
+
+        <div class="text-center" style="text-align: center; margin-top: 3rem;">
+            <a href="/gallery" class="btn btn-secondary">查看更多作品</a>
+        </div>
+    </div>
+</section>
+
+<!-- Articles Section -->
+<section id="articles" style="background: var(--color-white);">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">思考与分享</span>
+            <h2>最新文章</h2>
+            <p class="lead">人文洞察与技术探索</p>
+        </div>
+
+        <div class="category-filters">
+            <% theme.article_categories.forEach(function(cat) { %>
+            <button class="filter-btn <%= cat.slug === 'all' ? 'active' : '' %>" data-type="<%= cat.slug %>">
+                <%= cat.name %>
+            </button>
+            <% }); %>
+        </div>
+
+        <div class="articles-grid">
+            <% site.posts.sort('date', -1).limit(6).forEach(function(post) { %>
+            <article class="article-card" data-type="<%= post.layout === 'tech' ? 'tech' : 'humanities' %>">
+                <% if (post.thumbnail) { %>
+                <a href="<%= url_for(post.path) %>">
+                    <img src="<%= post.thumbnail %>" alt="<%= post.title %>" class="article-image" loading="lazy">
+                </a>
+                <% } else if (post.photos && post.photos.length > 0) { %>
+                <a href="<%= url_for(post.path) %>">
+                    <img src="<%= post.photos[0] %>" alt="<%= post.title %>" class="article-image" loading="lazy">
+                </a>
+                <% } else { %>
+                <a href="<%= url_for(post.path) %>">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/<%= encodeURIComponent(post.title) %>.jpg" alt="<%= post.title %>" class="article-image image-fallback" loading="lazy">
+                </a>
+                <% } %>
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category"><%= post.category || '未分类' %></span>
+                        <span class="article-date"><%= date(post.date, 'YYYY-MM-DD') %></span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="<%= url_for(post.path) %>"><%= post.title %></a>
+                    </h3>
+                    <p class="article-excerpt">
+                        <%= truncate(strip_html(post.content), {length: 100, omission: '...'}) %>
+                    </p>
+                    <a href="<%= url_for(post.path) %>" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            <% }); %>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<%- partial('_partial/about') %>
+
+<!-- Contact Section -->
+<%- partial('_partial/contact') %>

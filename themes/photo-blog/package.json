@@ -1,0 +1,21 @@
+{
+  "name": "hexo-theme-photo-blog",
+  "version": "1.0.0",
+  "description": "A minimalist photography blog theme for Hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "photography",
+    "blog",
+    "minimalist"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.9"
+  }
+}

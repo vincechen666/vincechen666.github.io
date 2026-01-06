@@ -1,0 +1,53 @@
+<div class="tags-index-page">
+    <div class="container">
+        <div class="page-header">
+            <h1>标签</h1>
+            <p class="lead">共 <%= page.tags.length %> 个标签</p>
+        </div>
+
+        <div class="tags-list">
+            <% page.tags.each(function(tag) { %>
+            <% if (tag.length) { %>
+            <div class="tag-item">
+                <a href="<%= url_for(tag.path) %>" class="tag-main">
+                    <div class="tag-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                            <line x1="7" y1="7" x2="7.01" y2="7"></line>
+                        </svg>
+                    </div>
+                    <div class="tag-info">
+                        <h2 class="tag-name"><%= tag.name %></h2>
+                        <div class="tag-meta">
+                            <span class="tag-count"><%= tag.length %> 篇文章</span>
+                        </div>
+                    </div>
+                    <svg class="tag-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <% if (tag.posts.first()) { %>
+                <div class="tag-latest">
+                    <span class="latest-label">最新文章</span>
+                    <a href="<%= url_for(tag.posts.first().path) %>" class="latest-title"><%= tag.posts.first().title %></a>
+                    <span class="latest-date"><%= date(tag.posts.first().date, 'YYYY-MM-DD') %></span>
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+            <% }); %>
+        </div>
+
+        <% if (page.tags.length === 0) { %>
+        <div class="empty-state">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+                <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <h3>暂无标签</h3>
+            <p>还没有创建任何标签，开始撰写并添加标签吧！</p>
+        </div>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="about-full-page">
+    <div class="container">
+        <div class="page-header">
+            <span class="subtitle">关于我</span>
+            <h1><%= theme.about.name %></h1>
+            <p class="lead"><%= theme.about.bio %></p>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我相信，每一张照片都承载着一个故事，每一次快门的释放都是对生活的礼赞。通过镜头，我试图捕捉那些稍纵即逝的美好瞬间，记录这个世界的多样性与复杂性。</p>
+                    <p>在这里，你将看到我的摄影作品集，涵盖风光、人像、街拍等多种类型；我也会分享关于摄影的思考、技巧心得，以及对技术与文化的探索。</p>
+                    <p>欢迎与我交流，一起在光影的世界里探索、成长。</p>
+                </div>
+
+                <div class="stats">
+                    <% theme.about.stats.forEach(function(stat) { %>
+                    <div class="stat-item">
+                        <div class="stat-number"><%= stat.number %></div>
+                        <div class="stat-label"><%= stat.label %></div>
+                    </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <div class="about-image-wrapper">
+                <div class="about-image">
+                    <img src="<%= url_for(theme.about.avatar) %>" alt="<%= theme.about.name %>">
+                </div>
+            </div>
+        </div>
+
+        <% if (page.content) { %>
+        <div class="about-extra">
+            <div class="page-content">
+                <%- page.content %>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

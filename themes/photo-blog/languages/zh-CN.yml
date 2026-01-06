@@ -1,0 +1,44 @@
+# Chinese Language File for Photo Blog Theme
+
+zh-CN:
+  menu:
+    home: 首页
+    archives: 归档
+    categories: 分类
+    tags: 标签
+    about: 关于
+    contact: 联系
+
+  pagination:
+    prev: '← 上一页'
+    next: '下一页 →'
+
+  post:
+    posted: '发布于'
+    updated: '更新于'
+    category: '分类'
+    tag: '标签'
+    read_more: '阅读全文'
+    related_posts: '相关文章'
+
+  comments:
+    title: '评论'
+    loading: '加载评论中...'
+
+  contact:
+    name: '姓名'
+    email: '邮箱'
+    subject: '主题'
+    message: '消息'
+    submit: '发送消息'
+    success: '感谢您的消息，我们会尽快回复您！'
+
+  about:
+    stats:
+      photos: '摄影作品'
+      articles: '原创文章'
+      years: '摄影经历'
+
+  footer:
+    copyright: '版权所有'
+    powered_by: 'Powered by'

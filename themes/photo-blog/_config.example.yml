@@ -1,0 +1,129 @@
+# Photo Blog Theme Configuration Example
+# 将此文件复制为 _config.yml 并根据需要修改
+
+# Menu
+menu:
+  Home: /
+  Archives: /archives
+  Categories: /categories
+  Tags: /tags
+  About: /about
+  Contact: /contact
+
+# Categories & Tags
+default_category: uncategorized
+default_tag: default
+
+# Hero Section
+hero:
+  title: 用镜头捕捉生活的诗意
+  subtitle: 在这里，我分享摄影作品、人文思考与技术探索
+  background_image: /images/hero-bg.jpg
+  cta_text:
+    - text: 浏览作品
+      url: /gallery
+    - text: 阅读文章
+      url: /archives
+
+# Portfolio Categories
+portfolio_categories:
+  - name: 全部
+    slug: all
+  - name: 风光
+    slug: landscape
+  - name: 人像
+    slug: portrait
+  - name: 街拍
+    slug: street
+  - name: 微距
+    slug: macro
+
+# Article Categories
+article_categories:
+  - name: 全部
+    slug: all
+  - name: 人文思考
+    slug: humanities
+  - name: 技术分享
+    slug: tech
+
+# About Section
+about:
+  name: 光影记录者
+  avatar: /images/avatar.jpg
+  bio: 我是一名热爱摄影的独立创作者，同时也是一个技术爱好者。
+  stats:
+    - number: 500+
+      label: 摄影作品
+    - number: 50+
+      label: 原创文章
+    - number: 5年
+      label: 摄影经历
+
+# Contact
+contact:
+  email: hello@photography-blog.com
+  social:
+    twitter: '@photography_blog'
+    instagram: '@photography_blog'
+  location: 中国 · 上海
+
+# Footer
+footer:
+  copyright: © 2024 光影之间. 保留所有权利.
+  links:
+    - title: 风光摄影
+      url: /category/landscape
+    - title: 人像摄影
+      url: /category/portrait
+    - title: 技术分享
+      url: /category/tech
+    - title: 人文思考
+      url: /category/humanities
+
+# Style Settings
+style:
+  primary_color: '#3B82F6'
+  secondary_color: '#60A5FA'
+  accent_color: '#F97316'
+  bg_color: '#FAFAFA'
+  text_color: '#09090B'
+  border_color: '#E4E4E7'
+
+# Fonts
+fonts:
+  heading: 'Cormorant Garamond, serif'
+  body: 'Inter, sans-serif'
+
+# Pagination
+pagination:
+  per_page: 6
+  prev: '← 上一页'
+  next: '下一页 →'
+
+# Comments
+comments:
+  enable: false
+  provider: disqus
+  shortname: your-disqus-shortname
+
+# Analytics
+analytics:
+  google_id:
+  baidu_id:
+
+# Scripts
+scripts:
+  - /js/main.js
+
+# CSS
+css:
+  - /css/style.css
+
+# Post settings
+post:
+  excerpt_length: 150
+  show_thumbnail: true
+  show_meta: true
+  show_tags: true
+  show_categories: true

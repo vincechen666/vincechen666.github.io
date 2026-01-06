@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="<%= config.language %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (page.title) { %>
+    <title><%= page.title %> | <%= config.title %></title>
+    <% } else { %>
+    <title><%= config.title %></title>
+    <% } %>
+    <% if (page.keywords) { %>
+    <meta name="keywords" content="<%= page.keywords %>">
+    <% } else if (config.keywords) { %>
+    <meta name="keywords" content="<%= config.keywords %>">
+    <% } %>
+    <% if (page.description) { %>
+    <meta name="description" content="<%= page.description %>">
+    <% } else if (config.description) { %>
+    <meta name="description" content="<%= config.description %>">
+    <% } %>
+
+    <% if (theme.styles) { %>
+      <% theme.styles.forEach(function(style) { %>
+    <link rel="stylesheet" href="<%= url_for(style) %>">
+      <% }); %>
+    <% } else { %>
+    <link rel="stylesheet" href="<%= url_for('/css/style.css') %>">
+    <% } %>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <% if (config.feed) { %>
+    <link rel="alternate" href="<%= url_for(config.feed.path) %>" title="<%= config.title %>" type="application/atom+xml">
+    <% } %>
+
+    <% if (theme.analytics.google_id) { %>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= theme.analytics.google_id %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= theme.analytics.google_id %>');
+    </script>
+    <% } %>
+</head>
+<body>
+    <!-- Navigation -->
+    <%- partial('_partial/navigation') %>
+
+    <!-- Main Content -->
+    <main>
+        <%- body %>
+    </main>
+
+    <!-- Footer -->
+    <%- partial('_partial/footer') %>
+
+    <!-- Scripts -->
+    <% if (theme.scripts) { %>
+      <% theme.scripts.forEach(function(script) { %>
+    <script src="<%= url_for(script) %>"></script>
+      <% }); %>
+    <% } else { %>
+    <script src="<%= url_for('/js/main.js') %>"></script>
+    <% } %>
+
+    <% if (theme.comments.enable && page.comments) { %>
+    <%- partial('_partial/comments') %>
+    <% } %>
+</body>
+</html>
