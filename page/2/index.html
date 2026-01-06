@@ -1,452 +1,475 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
-  <head>
-    <meta charset="utf8"/>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
-    <title>
-      
-        Loafer
-      
-    </title>
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-      <link rel="apple-touch-icon"
-            sizes="180x180"
-            href="/images/climber.svg"/>
-    
-    
-      <link rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/images/climber.svg"/>
-    
-    
-      <link rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="/images/climber.svg"/>
-    
-    
-      <link rel="mask-icon"
-            href="/images/climber.svg"
-            color=""/>
+    <title>CyCai</title>
     
     
     
-      
-  <style>
-    @font-face {
-        font-family:SourceHanSansCN-Medium;
-        src: url(/font/regular.ttf);
-        font-weight: regular;
-    }
-  </style>
-
-  <style>
-    @font-face {
-        font-family:SourceHanSansCN-Medium;
-        src: url(/font/bold.ttf);
-        font-weight: bold;
-    }
-  </style>
-
 
     
-    <link rel="stylesheet"
-          type="text/css"
-          href='/css/layout.css'/>
+    <link rel="stylesheet" href="/css/style.css">
     
-    
-  
-  <link rel="stylesheet"
-        type="text/css"
-        href='/css/index.css'/>
 
-  <meta name="generator" content="Hexo 7.0.0"></head>
-  <body>
-    <div class="head">
-      <div class="nav">
-        <a href='/' class="nav-logo">
-          <img alt="logo" height="60px" width="60px" src="/images/climber.svg"/>
-        </a>
-        <input id="navBtn" type="checkbox"/>
-        <div class="nav-menu">
-          
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    
+
+    
+<meta name="generator" content="Hexo 7.0.0"></head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation">
+    <div class="container">
+        <a href="/" class="logo">CyCai</a>
+
+        <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu">
             
-              <a class="nav-menu-item" href="/book">技术</a>
+            <li><a href="/" class="nav-link">首页</a></li>
             
-              <a class="nav-menu-item" href="/article">人文</a>
+            <li><a href="/archives" class="nav-link">归档</a></li>
             
-          
-          
-        </div>
-        <label class="nav-btn" for="navBtn"></label>
-      </div>
+            <li><a href="/categories" class="nav-link">分类</a></li>
+            
+            <li><a href="/tags" class="nav-link">标签</a></li>
+            
+            <li><a href="/about" class="nav-link">关于</a></li>
+            
+            <li><a href="/contact" class="nav-link">联系</a></li>
+            
+        </ul>
     </div>
-    <div class="body">
-      
-  <div class="wall wall-index">
-    <div class="wall-main" id="wall-main">
-      <div class="wall-title">LOAFER</div>
-      <div class="wall-subtitle"></div>
-      <div class="wall-description">“Regressusf Ad Originem”</div>
-    </div>
-    <div class="wall-bg">
-      <div class="wall-bg-index">
-        <div class="hello-world">
-          <div>> Hello world</div>
-          <div class="cursor"></div>
-        </div>
-        <div class="normal-eqt">
-          <img alt="normal" width="300px" height="" src="/images/normal.svg"/>
-        </div>
-        <canvas width="400" height="400" id="heart-curve"></canvas>
-        <div class="motto">长风破浪会有时！</div>
-        <div class="poem">
-          
-            君不见高堂明镜悲白发
-            <br/>
-          
-            朝如青丝暮成雪
-            <br/>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="about">
-  <div class="about-header">
-      <div class="about-title">
-        See what all the talk is about!
-      </div>
-      <div class="about-subtitle">
-        Transformative Client experience from all around the globe
-      </div>
-    </div>
-    <div class="about-cards">
-      
-        <div class="card">
-          <div class="card-image" style="background-image: url(/images/person1.jpg)"></div>
-          <div class="card-content">
-            <div class="card-quote">“</div>
-            <div class="card-text">
-              He is super fast and creative, delivered the website design within a week. Highly skilled and professional designer!
-            </div>
-            <div class="card-author">— Sarah, Kickflip</div>
-          </div>
-        </div>
-      
-        <div class="card">
-          <div class="card-image" style="background-image: url(/images/person2.jpg)"></div>
-          <div class="card-content">
-            <div class="card-quote">“</div>
-            <div class="card-text">
-              Impressed by the Professionalism and attention to details in UI design. Highly Recommended!
-            </div>
-            <div class="card-author">— Martha, Unicell</div>
-          </div>
-        </div>
-      
-        <div class="card">
-          <div class="card-image" style="background-image: url(/images/person3.jpg)"></div>
-          <div class="card-content">
-            <div class="card-quote">“</div>
-            <div class="card-text">
-              A Seamless experience from start to finish. Josh made our app design and experience really impressive.
-            </div>
-            <div class="card-author">— Victor, Horizone</div>
-          </div>
-        </div>
-      
-    </div>
-  </div>
-  
-    <div class="timeline">
-      <div class="timeline-head">
-        <div class="title">时间线</div>
-        <div class="radio-wrapper">
-          
-            <div class="radio">
-              <input id="radio-article"
-                     type="checkbox"
-                     />
-              <label class="radio-skin--article" for="radio-article"></label>
-            </div>
-          
-            <div class="radio">
-              <input id="radio-app"
-                     type="checkbox"
-                     checked/>
-              <label class="radio-skin--app" for="radio-app"></label>
-            </div>
-          
-            <div class="radio">
-              <input id="radio-event"
-                     type="checkbox"
-                     />
-              <label class="radio-skin--event" for="radio-event"></label>
-            </div>
-          
-        </div>
-      </div>
-      <div class="timeline-body">
-        <div class="timeline-item-first">
-          <div class="line-anchor line-anchor--now"></div>
-        </div>
-        <div class="timeline-list" id="timeline-list"></div>
-        <div class="timeline-item-last">
-          <div class="line-anchor line-anchor--end"></div>
-        </div>
-      </div>
-    </div>
-  
+</nav>
 
-    </div>
-    <div class="foot">
-      <div class="foot-inner">
-        <div class="foot__head">
-          
-            <div class="foot-line">
-              
-                <div class="matts">海</div>
-              
-                <div class="matts">内</div>
-              
-                <div class="matts">存</div>
-              
-                <div class="matts">知</div>
-              
-                <div class="matts">己</div>
-              
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>拾光集</h1>
+            <p class="lead">于字里行间，拾点滴星光</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                
+                <a href="/gallery" class="btn btn-primary">浏览作品</a>
+                
+                <a href="/archives" class="btn btn-secondary">阅读文章</a>
+                
             </div>
-          
-            <div class="foot-line">
-              
-                <div class="matts">天</div>
-              
-                <div class="matts">涯</div>
-              
-                <div class="matts">若</div>
-              
-                <div class="matts">比</div>
-              
-                <div class="matts">邻</div>
-              
-            </div>
-          
         </div>
-        <div class="foot__body">
-          
-          
-          <div class="foot-item">
-            <div class="foot-item__head">联系</div>
-            <div class="foot-item__body">
-              <div class="text">
-                <img alt="link" height="20px" width="20px" src="/images/icon/icon-email.svg"/>
-                <a class="foot-link" href="mailto:1004743668@qq.com">1004743668@qq.com</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="copyright">
-          <a href="http://example.com">Loafer</a> &nbsp;|&nbsp;由&nbsp;<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>&nbsp;及&nbsp;
-          <svg width="20" height="20" viewBox="0 0 725 725">
-            <path fill-rule="evenodd" fill="rgb(221, 221, 221)" d="M145.870,236.632 L396.955,103.578 L431.292,419.44 L156.600,522.53 L145.870,236.632 Z"/>
-            <path fill-rule="evenodd" fill="rgb(159, 159, 159)" d="M396.955,103.578 L564.345,234.486 L611.558,513.469 L431.292,419.44 L396.955,103.578 Z"/>
-            <path fill-rule="evenodd" fill="rgb(0, 0, 0)" d="M431.292,419.44 L611.558,513.469 L358.327,595.18 L156.600,522.53 L431.292,419.44 Z"/>
-          </svg>
-          <a target="_blank" rel="noopener" href="https://github.com/hooozen/hexo-theme-tranquility">致远</a>&nbsp;驱动
-        </div>
-      </div>
     </div>
     
+    <img src="/images/hero-bg.jpg" alt="Hero Background" class="hero-image">
     
-  <script type="text/javascript">
-  function HeartCurve(w, h) {
-    this.w = w;
-    this.h = h;
-    this.a = undefined;
-    this.ctx = undefined;
-    this.deg = 0;
-    this.speed = 0.4;
-    this.isPause = false;
-    this.init();
-  }
-  HeartCurve.prototype.init = function () {
-    const {
-      w,
-      h
-    } = this;
-    const canvas = document.querySelector('#heart-curve');
-    if (!canvas) throw Error('no canvas element!');
+</section>
 
-    this.ctx = canvas.getContext('2d');
-    this.ctx.translate(2 * w / 3, h / 2);
-    this.ctx.lineJoin = 'round';
-    this.a = w / 6.2;
-    this.id = null;
-    return this;
-  };
-  HeartCurve.prototype._drawAxis = function () {
-    const {
-      ctx,
-      w,
-      h
-    } = this;
-    ctx.lineWidth = 1;
-    ctx.strokeStyle = "#999";
-    ctx.beginPath();
-    ctx.moveTo(-w * 2 / 3, 0);
-    ctx.lineTo(w / 3, 0);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(0, -h * 0.48);
-    ctx.lineTo(0, h * 0.48);
-    ctx.stroke();
-  };
-  HeartCurve.prototype._drawCure = function () {
-    const {
-      ctx,
-      a
-    } = this;
-    ctx.beginPath();
-    let x, y, deg = 0;
-    ctx.moveTo(0, 0);
-    ctx.strokeStyle = "#ff0000";
-    while (deg <= 360) {
-      const theta = deg / 180 * Math.PI;
-      r = 2 * a * (1 - Math.cos(theta));
-      x = r * Math.cos(theta);
-      y = r * Math.sin(theta);
-      ctx.lineTo(x, y);
-      deg++;
-    }
-    ctx.stroke();
-  };
-  HeartCurve.prototype.spin = function () {
-    let {
-      a,
-      w,
-      h,
-      deg,
-      ctx
-    } = this;
-    if (deg >= 360) deg = 0;
 
-    ctx.clearRect(-w / 3 * 2, -h / 2, w, h);
-    const theta = deg / 180 * Math.PI;
-    this._drawAxis();
-    ctx.lineWidth = 2;
-    this._drawCure();
-    ctx.strokeStyle = "#000";
-    ctx.beginPath();
-    ctx.arc(-a, 0, a, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.arc(2 * a * Math.cos(theta) - a, 2 * a * Math.sin(theta), a, 0, 2 * Math.PI);
-    ctx.stroke();
-    ctx.beginPath();
-    let r = 2 * a * (1 - Math.cos(theta));
-    let x = r * Math.cos(theta);
-    let y = r * Math.sin(theta);
-    ctx.arc(x, y, 3, 0, 2 * Math.PI);
-    ctx.fill();
-    if (this.isPause) return;
+<!-- Portfolio Section -->
+<section id="portfolio">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">作品集</span>
+            <h2>摄影作品</h2>
+            <p class="lead">记录光影，定格瞬间</p>
+        </div>
 
-    this.deg = deg + this.speed;
-    this.id = window.requestAnimationFrame(this.spin.bind(this));
-  };
-  HeartCurve.prototype.pause = function () {
-    this.isPause = true;
-    if (window.cancelAnimationFrame) {
-      window.cancelAnimationFrame(this.id);
-    }
-  };
-  HeartCurve.prototype.resume = function () {
-    this.isPause = false;
-    this.spin();
-  };
+        <div class="category-filters">
+            
+            <button class="filter-btn active" data-filter="all">
+                全部
+            </button>
+            
+            <button class="filter-btn " data-filter="nanchang">
+                南昌
+            </button>
+            
+            <button class="filter-btn " data-filter="xian">
+                西安
+            </button>
+            
+            <button class="filter-btn " data-filter="beijing">
+                北京
+            </button>
+            
+            <button class="filter-btn " data-filter="yunnan">
+                云南
+            </button>
+            
+        </div>
 
-  (function () {
-    const heartCurve = new HeartCurve(400, 400);
-    heartCurve.spin();
-    mobileAdjust(window.matchMedia("(hover:none"));
-    window.matchMedia("(hover:none)").addListener(mobileAdjust);
+        <div class="portfolio-grid">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </div>
 
-    function mobileAdjust(media) {
-      const wallEl = document.querySelector('#wall-main')
-      if (!media.matches) {
-        heartCurve.pause();
-        wallEl.addEventListener('mouseenter', () => {
-          console.log('resume');
-          heartCurve.resume();
-        });
-        wallEl.addEventListener('mouseleave', () => {
-          console.log('pause');
-          heartCurve.pause();
-        });
-      }
-    }
-  })();
-</script>
-  
-  
-  <script type="text/javascript">
-    const timelineData = {"types":["article","app","event"],"posts":[]}
-    const {types, posts} = timelineData
-    listEl = document.querySelector("#timeline-list");
+        <div class="text-center" style="text-align: center; margin-top: 3rem;">
+            <a href="/gallery" class="btn btn-secondary">查看更多作品</a>
+        </div>
+    </div>
+</section>
 
-    elRefs = getElRefs(types)
-    bindListener(types, elRefs)
+<!-- Articles Section -->
+<section id="articles" style="background: var(--color-white);">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">思考与分享</span>
+            <h2>最新文章</h2>
+            <p class="lead">人文洞察与技术探索</p>
+        </div>
 
-    setTimeout(init.bind(this, types, elRefs))
+        <div class="category-filters">
+            
+            <button class="filter-btn active" data-type="all">
+                全部
+            </button>
+            
+            <button class="filter-btn " data-type="humanities">
+                人文思考
+            </button>
+            
+            <button class="filter-btn " data-type="tech">
+                技术分享
+            </button>
+            
+        </div>
 
-    function getElRefs(types) {
-      return types.map(type => document.querySelector(`#radio-${type}`))
-    }
+        <div class="articles-grid">
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E4%B8%80%E9%A5%AE%E4%B8%80%E5%95%84%EF%BC%8C%E7%B3%BB%E4%B9%8B%E4%BA%8E%E5%88%86/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E4%B8%80%E9%A5%AE%E4%B8%80%E5%95%84%EF%BC%8C%E7%B3%BB%E4%B9%8B%E4%BA%8E%E5%88%86.jpg" alt="一饮一啄，系之于分" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E4%B8%80%E9%A5%AE%E4%B8%80%E5%95%84%EF%BC%8C%E7%B3%BB%E4%B9%8B%E4%BA%8E%E5%88%86/">一饮一啄，系之于分</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	为什么有的国家富裕而有的国家贫穷？为什么欧洲征服了美洲而不是印第安人踏上欧亚大陆？为什么中国在15世纪之前政治文化科技全面领先，而之后急转直下？许多学者给了不同的答案，从人种基因的角度、从制...
+                    </p>
+                    <a href="/2026/01/06/%E4%B8%80%E9%A5%AE%E4%B8%80%E5%95%84%EF%BC%8C%E7%B3%BB%E4%B9%8B%E4%BA%8E%E5%88%86/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%80%9D%E8%80%83%EF%BC%8C%E7%8C%AB%E5%92%AA%E5%B0%B1%E5%8F%91%E7%AC%91/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%80%9D%E8%80%83%EF%BC%8C%E7%8C%AB%E5%92%AA%E5%B0%B1%E5%8F%91%E7%AC%91.jpg" alt="人类一思考，猫咪就发笑" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%80%9D%E8%80%83%EF%BC%8C%E7%8C%AB%E5%92%AA%E5%B0%B1%E5%8F%91%E7%AC%91/">人类一思考，猫咪就发笑</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	人类一思考，猫咪就发笑。
+​	咱家是一只一岁半的小猫咪，自打被身为英语老师的主子——苦沙弥收养以来见识了各色各样的人等，领悟到许多独属于人类社会的哲思和观念。受到近代日本文学风格的影响，咱家...
+                    </p>
+                    <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E4%B8%80%E6%80%9D%E8%80%83%EF%BC%8C%E7%8C%AB%E5%92%AA%E5%B0%B1%E5%8F%91%E7%AC%91/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E7%81%B5%E9%AD%82%E7%9A%84%E5%85%A8%E9%83%A8%E6%B7%B1%E5%BA%A6/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E4%BA%BA%E7%B1%BB%E7%81%B5%E9%AD%82%E7%9A%84%E5%85%A8%E9%83%A8%E6%B7%B1%E5%BA%A6.jpg" alt="人类灵魂的全部深度" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E7%81%B5%E9%AD%82%E7%9A%84%E5%85%A8%E9%83%A8%E6%B7%B1%E5%BA%A6/">人类灵魂的全部深度</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	从小被父亲抛弃、母亲的遗产被父亲私吞不愿归还、父亲甚至拿着这笔钱想要抢夺心爱的女人，一个人在被父亲重重伤害因而怀有满腔恨意的情况下，半夜闯入家中打开窗户，事后逃窜打晕了家里的仆人、血溅满全身...
+                    </p>
+                    <a href="/2026/01/06/%E4%BA%BA%E7%B1%BB%E7%81%B5%E9%AD%82%E7%9A%84%E5%85%A8%E9%83%A8%E6%B7%B1%E5%BA%A6/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E5%8E%86%E5%8F%B2%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%AE%BF%E5%91%BD%E6%84%9F/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E5%8E%86%E5%8F%B2%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%AE%BF%E5%91%BD%E6%84%9F.jpg" alt="历史的必然性和个人的宿命感" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E5%8E%86%E5%8F%B2%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%AE%BF%E5%91%BD%E6%84%9F/">历史的必然性和个人的宿命感</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	当最后一代奥雷里亚诺盖上手中的羊皮卷，马孔多也随着飓风粉碎散去之后，曾经沉淀的一切化为灰烬，所有的历史不复存在。而这一切在梅尔基亚德斯刚到达马孔多时带来的羊皮卷中已经寓言了一切，然而直到消逝...
+                    </p>
+                    <a href="/2026/01/06/%E5%8E%86%E5%8F%B2%E7%9A%84%E5%BF%85%E7%84%B6%E6%80%A7%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%AE%BF%E5%91%BD%E6%84%9F/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%B9%B8%E7%A6%8F/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%B9%B8%E7%A6%8F.jpg" alt="另一种幸福" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%B9%B8%E7%A6%8F/">另一种幸福</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	合上书页，我脑子里最后浮现的是杰罗姆一生未婚、是阿莉莎的日记，也是朱丽叶在暮光下倚靠在椅子上落泪的画面。
+​	杰罗姆和阿莉莎的一生是相爱相杀的一生。杰罗姆的一生把对阿莉莎的爱当成一种信仰，究...
+                    </p>
+                    <a href="/2026/01/06/%E5%8F%A6%E4%B8%80%E7%A7%8D%E5%B9%B8%E7%A6%8F/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+            <article class="article-card" data-type="humanities">
+                
+                <a href="/2026/01/06/%E5%9C%A8%E2%80%9D%E5%B0%8F%E2%80%9C%E4%B8%8E%E2%80%9C%E5%A4%A7%E2%80%9C%E4%B9%8B%E9%97%B4/">
+                    <img src="https://raw.githubusercontent.com/vincechen666/pic/master/%E5%9C%A8%22%E5%B0%8F%22%E4%B8%8E%22%E5%A4%A7%22%E4%B9%8B%E9%97%B4.jpg" alt="在&#34;小&#34;与&#34;大&#34;之间" class="article-image image-fallback" loading="lazy">
+                </a>
+                
+                <div class="article-content">
+                    <div class="article-meta">
+                        <span class="article-category">未分类</span>
+                        <span class="article-date">2026-01-06</span>
+                    </div>
+                    <h3 class="article-title">
+                        <a href="/2026/01/06/%E5%9C%A8%E2%80%9D%E5%B0%8F%E2%80%9C%E4%B8%8E%E2%80%9C%E5%A4%A7%E2%80%9C%E4%B9%8B%E9%97%B4/">在&#34;小&#34;与&#34;大&#34;之间</a>
+                    </h3>
+                    <p class="article-excerpt">
+                        ​	断断续续，历时半个月把这本篇幅不长却又感觉漫长的小书读完了。篇幅不长是因为这是作者的短篇随笔集，整体文本量不大；说漫长是因为全书充满了许多日本独有的语言文化，对一个对日本文化完全陌生的读者来...
+                    </p>
+                    <a href="/2026/01/06/%E5%9C%A8%E2%80%9D%E5%B0%8F%E2%80%9C%E4%B8%8E%E2%80%9C%E5%A4%A7%E2%80%9C%E4%B9%8B%E9%97%B4/" class="btn-link">阅读全文 →</a>
+                </div>
+            </article>
+            
+        </div>
+    </div>
+</section>
 
-    function bindListener(names, els) {
-      names.map((name, i) => els[i].addEventListener('change', e => updateList(name, e.target.checked)))
-    }
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-content">
+                <span class="subtitle">关于我</span>
+                <h2>CyCai</h2>
+                <p>我是一名读者，也是一个技术爱好者。</p>
+                <p>我相信，每一张照片都承载着一个故事，每一次快门的释放都是对生活的礼赞。通过镜头，我试图捕捉那些稍纵即逝的美好瞬间，记录这个世界的多样性与复杂性。</p>
+                <p>在这里，你将看到我的摄影作品集，涵盖风光、人像、街拍等多种类型；我也会分享关于摄影的思考、技巧心得，以及对技术与文化的探索。</p>
+                <p>欢迎与我交流，一起在光影的世界里探索、成长。</p>
 
-    function updateList(type, value) {
-      listDom
-        .filter(line => line.type === type)
-        .forEach(line => {
-          line.el.className = line
-            .el
-            .className
-            .replace(
-              /(--hidden)?$/, value
-              ? ""
-              : "--hidden");
-        });
-    }
+                <div class="stats">
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">阅读书籍</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">原创文章</div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div class="stat-number">5年</div>
+                        <div class="stat-label">阅读年限</div>
+                    </div>
+                    
+                </div>
+            </div>
 
-    const listDom = posts.map(t => getLine(t));
-    listEl.append(...listDom.map(i => i.el));
+            <div class="about-image">
+                <img src="/images/avatar.jpg" alt="CyCai">
+            </div>
+        </div>
+    </div>
+</section>
 
-    function getLine(data) {
-      const item = document.createElement("DIV");
-      item.className = `timeline-item-${data.type} timeline-item--hidden`;
-      item.innerHTML = `
-                          <div class="line-date">
-                          <div class="line-date-tag">${data.date}</div></div>
-                          <div class="line-anchor"></div>
-                          <div class="line-title">
-                              <img class="text-icon" src="${data.icon}"/><a class="timeline-post" href="${data.path}">${data.title}</a>
-                          </div>
-                          `;
-      return {el: item, type: data.type};
-    };
 
-    function init(names, els) {
-      names.map((name, i) => updateList(name, els[i].checked))
-    }
-  </script >
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-header">
+            <span class="subtitle">保持联系</span>
+            <h2>联系我</h2>
+            <p class="lead">期待与您交流摄影、技术与生活</p>
+        </div>
 
-  
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>电子邮箱</h4>
+                        <p>1004743668@qq.com</p>
+                    </div>
+                </div>
 
-  </body>
+                <div class="contact-info-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>社交媒体</h4>
+                        <p>@photography_blog</p>
+                    </div>
+                </div>
+
+                <div class="contact-info-item">
+                    <div class="contact-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>位置</h4>
+                        <p>中国 · 广州</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;">如果您对我的摄影作品感兴趣，或者想要交流摄影技巧、探讨合作机会，欢迎随时与我联系。</p>
+            </div>
+
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="请输入您的姓名" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">邮箱</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="请输入您的邮箱" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">主题</label>
+                    <input type="text" id="subject" name="subject" class="form-input" placeholder="消息主题">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">消息</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="请输入您的消息内容" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">发送消息</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 class="logo">CyCai</h3>
+                <p></p>
+            </div>
+
+            <div>
+                <h4>快速链接</h4>
+                <nav class="footer-links">
+                    
+                    <a href="/">首页</a>
+                    
+                    <a href="/archives">归档</a>
+                    
+                    <a href="/categories">分类</a>
+                    
+                    <a href="/tags">标签</a>
+                    
+                    <a href="/about">关于</a>
+                    
+                    <a href="/contact">联系</a>
+                    
+                </nav>
+            </div>
+
+            <div>
+                <h4>分类</h4>
+                <nav class="footer-links">
+                    
+                    <a href="/category/landscape">风光摄影</a>
+                    
+                    <a href="/category/portrait">人像摄影</a>
+                    
+                    <a href="/category/tech">技术分享</a>
+                    
+                    <a href="/category/humanities">人文思考</a>
+                    
+                </nav>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 CyCai. 保留所有权利.</p>
+            <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a></p>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- Scripts -->
+    
+      
+    <script src="/js/main.js"></script>
+      
+    
+
+    
+</body>
 </html>
