@@ -440,7 +440,11 @@ textarea{resize:vertical;min-height:120px}
     var el = document.createElement('div');
     el.className = 'msg msg-loading';
     el.id = 'loadingMsg';
-    el.innerHTML = 'AI 思考中<span class="loading-dots"></span>';
+    var textNode = document.createTextNode('AI 思考中');
+    el.appendChild(textNode);
+    var dotsSpan = document.createElement('span');
+    dotsSpan.className = 'loading-dots';
+    el.appendChild(dotsSpan);
     $chatMessages.appendChild(el);
     $chatMessages.scrollTop = $chatMessages.scrollHeight;
   }
@@ -522,7 +526,7 @@ textarea{resize:vertical;min-height:120px}
 
       if (!res.ok) {
         var errText = await res.text();
-        throw new Error('API 错误 (' + res.status + '): ' + (errText.substring(0, 200)));
+        throw new Error('API 错误 (' + res.status + '): ' + (errText.length > 200 ? errText.substring(0, 200) + '...' : errText));
       }
 
       var data = await res.json();
@@ -539,7 +543,7 @@ textarea{resize:vertical;min-height:120px}
       try {
         parsed = JSON.parse(cleaned);
       } catch (e) {
-        throw new Error('AI 返回的格式无法解析为JSON。原始回复：' + content.substring(0, 200));
+        throw new Error('AI 返回的格式无法解析为JSON。原始回复：' + (content.length > 200 ? content.substring(0, 200) + '...' : content));
       }
 
       // Record assistant response
