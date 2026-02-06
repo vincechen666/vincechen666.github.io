@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI故事角色扮演 - CyCai</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --color-primary:#3B82F6;
+  --color-primary-dark:#2563EB;
+  --color-primary-light:#DBEAFE;
+  --color-secondary:#F97316;
+  --color-bg:#FAFAFA;
+  --color-text:#09090B;
+  --color-muted:#52525B;
+  --color-border:#E4E4E7;
+  --color-white:#FFFFFF;
+  --color-danger:#EF4444;
+  --color-narrator:#1E293B;
+  --font-heading:'Cormorant Garamond',serif;
+  --font-body:'Inter',sans-serif;
+  --radius:8px;
+  --shadow:0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:0 4px 12px rgba(0,0,0,0.1);
+}
+body{font-family:var(--font-body);background:var(--color-bg);color:var(--color-text);line-height:1.6;min-height:100vh}
+/* Navbar */
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-border);padding:0 1.5rem;height:56px;display:flex;align-items:center;justify-content:space-between}
+.navbar .logo{font-family:var(--font-heading);font-size:1.5rem;font-weight:600;color:var(--color-text);text-decoration:none}
+.navbar .back-link{font-size:0.875rem;color:var(--color-muted);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color 0.2s}
+.navbar .back-link:hover{color:var(--color-primary)}
+/* Layout */
+.container{max-width:800px;margin:0 auto;padding:72px 1rem 2rem}
+/* Step indicator */
+.steps-bar{display:flex;gap:0.5rem;margin-bottom:2rem;justify-content:center}
+.step-dot{width:10px;height:10px;border-radius:50%;background:var(--color-border);transition:background 0.3s,transform 0.3s}
+.step-dot.active{background:var(--color-primary);transform:scale(1.3)}
+.step-dot.done{background:var(--color-primary);opacity:0.5}
+/* Panels */
+.panel{display:none;animation:fadeIn 0.35s ease}
+.panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+/* Typography */
+h2{font-family:var(--font-heading);font-size:1.75rem;font-weight:600;margin-bottom:0.25rem}
+.subtitle{color:var(--color-muted);font-size:0.875rem;margin-bottom:1.5rem}
+/* Forms */
+label{display:block;font-size:0.8125rem;font-weight:500;margin-bottom:0.25rem;color:var(--color-muted)}
+textarea,input[type="text"],input[type="password"]{width:100%;padding:0.625rem 0.75rem;border:1px solid var(--color-border);border-radius:var(--radius);font-family:var(--font-body);font-size:0.9375rem;background:var(--color-white);transition:border-color 0.2s;outline:none;color:var(--color-text)}
+textarea:focus,input[type="text"]:focus,input[type="password"]:focus{border-color:var(--color-primary)}
+textarea{resize:vertical;min-height:120px}
+.form-group{margin-bottom:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:560px){.form-row{grid-template-columns:1fr}}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:0.375rem;padding:0.625rem 1.25rem;border:none;border-radius:var(--radius);font-family:var(--font-body);font-size:0.875rem;font-weight:500;cursor:pointer;transition:background 0.2s,transform 0.1s,opacity 0.2s}
+.btn:active{transform:scale(0.97)}
+.btn-primary{background:var(--color-primary);color:#fff}
+.btn-primary:hover{background:var(--color-primary-dark)}
+.btn-primary:disabled{opacity:0.5;cursor:not-allowed}
+.btn-secondary{background:var(--color-white);color:var(--color-text);border:1px solid var(--color-border)}
+.btn-secondary:hover{background:#F4F4F5}
+.btn-danger{background:transparent;color:var(--color-danger);border:1px solid var(--color-danger);padding:0.375rem 0.75rem;font-size:0.8125rem}
+.btn-danger:hover{background:#FEF2F2}
+.btn-row{display:flex;justify-content:flex-end;gap:0.75rem;margin-top:1.5rem}
+/* Cards */
+.card{background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius);padding:1rem;box-shadow:var(--shadow)}
+/* Character list */
+.char-list{display:flex;flex-direction:column;gap:0.75rem;margin-top:1.25rem}
+.char-card{display:flex;justify-content:space-between;align-items:flex-start;gap:0.75rem}
+.char-card .info{flex:1;min-width:0}
+.char-card .info .name{font-weight:600;font-size:1rem;margin-bottom:0.25rem}
+.char-card .info .meta{font-size:0.8125rem;color:var(--color-muted);display:flex;flex-wrap:wrap;gap:0.25rem 0.75rem}
+/* Selectable cards */
+.select-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+.select-card{cursor:pointer;transition:border-color 0.2s,box-shadow 0.2s;position:relative}
+.select-card:hover{border-color:var(--color-primary)}
+.select-card.selected{border-color:var(--color-primary);box-shadow:0 0 0 2px var(--color-primary)}
+.select-card .badge{position:absolute;top:8px;right:8px;background:var(--color-primary);color:#fff;font-size:0.6875rem;padding:2px 8px;border-radius:999px;display:none}
+.select-card.selected .badge{display:block}
+.select-card .name{font-weight:600;margin-bottom:0.25rem}
+.select-card .desc{font-size:0.8125rem;color:var(--color-muted)}
+/* API settings */
+.api-toggle{display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.8125rem;color:var(--color-muted);margin-bottom:1rem;user-select:none}
+.api-toggle .arrow{transition:transform 0.2s;display:inline-block}
+.api-toggle .arrow.open{transform:rotate(90deg)}
+.api-panel{overflow:hidden;max-height:0;transition:max-height 0.3s ease;margin-bottom:1rem}
+.api-panel.open{max-height:400px}
+.api-panel .inner{padding:1rem;background:var(--color-white);border:1px solid var(--color-border);border-radius:var(--radius);display:flex;flex-direction:column;gap:0.75rem}
+.api-panel .inner .form-group{margin-bottom:0}
+.api-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+@media(max-width:560px){.api-row{grid-template-columns:1fr}}
+/* Chat */
+.chat-wrapper{display:flex;flex-direction:column;height:calc(100vh - 72px - 2rem)}
+.chat-messages{flex:1;overflow-y:auto;padding:0.5rem 0;display:flex;flex-direction:column;gap:0.75rem}
+.msg{max-width:85%;padding:0.625rem 0.875rem;border-radius:var(--radius);font-size:0.9375rem;line-height:1.55;word-wrap:break-word;white-space:pre-wrap}
+.msg .msg-name{font-size:0.75rem;font-weight:600;margin-bottom:0.25rem}
+.msg-narrator{align-self:center;max-width:92%;background:var(--color-narrator);color:#CBD5E1;font-style:italic;text-align:center;border-radius:12px;font-size:0.875rem;padding:0.75rem 1rem}
+.msg-user{align-self:flex-end;background:var(--color-primary);color:#fff;border-bottom-right-radius:2px}
+.msg-user .msg-name{color:rgba(255,255,255,0.75)}
+.msg-ai{align-self:flex-start;background:var(--color-white);border:1px solid var(--color-border);border-bottom-left-radius:2px}
+.msg-ai .msg-name{color:var(--color-primary)}
+.chat-input{display:flex;gap:0.5rem;padding-top:0.75rem;border-top:1px solid var(--color-border);margin-top:auto;flex-shrink:0}
+.chat-input input{flex:1}
+.chat-input .btn{flex-shrink:0}
+/* Error toast */
+.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);background:var(--color-danger);color:#fff;padding:0.75rem 1.25rem;border-radius:var(--radius);font-size:0.875rem;box-shadow:var(--shadow-md);z-index:200;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.toast.show{opacity:1;pointer-events:auto}
+/* Loading spinner */
+.loading-dots::after{content:'';animation:dots 1.2s steps(3,end) infinite}
+@keyframes dots{0%{content:''}33%{content:'.'}66%{content:'..'}100%{content:'...'}}
+.msg-loading{align-self:center;background:transparent;color:var(--color-muted);font-style:italic;font-size:0.875rem}
+/* Misc */
+.hint{font-size:0.8125rem;color:var(--color-muted);margin-top:0.5rem}
+.empty{text-align:center;padding:2rem;color:var(--color-muted);font-size:0.875rem}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="/" class="logo">CyCai</a>
+  <a href="/" class="back-link">← 返回首页</a>
+</nav>
+
+<div class="container" id="app">
+
+  <!-- Step dots -->
+  <div class="steps-bar">
+    <div class="step-dot active" data-step="0"></div>
+    <div class="step-dot" data-step="1"></div>
+    <div class="step-dot" data-step="2"></div>
+    <div class="step-dot" data-step="3"></div>
+  </div>
+
+  <!-- API Settings (collapsible, always visible except in chat) -->
+  <div id="apiSection">
+    <div class="api-toggle" id="apiToggle">
+      <span class="arrow" id="apiArrow">▶</span> API 设置
+    </div>
+    <div class="api-panel" id="apiPanel">
+      <div class="inner">
+        <div class="api-row">
+          <div class="form-group">
+            <label for="apiUrl">API 地址</label>
+            <input type="text" id="apiUrl" value="https://api.openai.com/v1/chat/completions">
+          </div>
+          <div class="form-group">
+            <label for="apiModel">模型名称</label>
+            <input type="text" id="apiModel" value="gpt-4o">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="apiKey">API 密钥</label>
+          <input type="password" id="apiKey" placeholder="sk-...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1: Story Settings -->
+  <div class="panel active" id="step0">
+    <h2>故事设定</h2>
+    <p class="subtitle">描述你的故事世界——背景、时代、风格、基调等</p>
+    <div class="form-group">
+      <textarea id="storyBg" placeholder="例如：在一个蒸汽朋克风格的19世纪伦敦，魔法与科技共存。城市上空飘浮着巨大的飞艇，街道上行走着发条机器人……"></textarea>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="toStep1">下一步 →</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Character Creation -->
+  <div class="panel" id="step1">
+    <h2>角色创建</h2>
+    <p class="subtitle">创建至少2个角色，其中一个将由你扮演</p>
+    <div class="card">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="charName">名称</label>
+          <input type="text" id="charName" placeholder="角色名">
+        </div>
+        <div class="form-group">
+          <label for="charPersonality">性格</label>
+          <input type="text" id="charPersonality" placeholder="如：勇敢、冷静">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="charAppearance">外貌</label>
+          <input type="text" id="charAppearance" placeholder="简要描述外貌">
+        </div>
+        <div class="form-group">
+          <label for="charAbilities">能力</label>
+          <input type="text" id="charAbilities" placeholder="特殊能力或技能">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="charBackground">背景</label>
+        <textarea id="charBackground" style="min-height:60px" placeholder="角色的背景故事"></textarea>
+      </div>
+      <button class="btn btn-secondary" id="addChar">＋ 添加角色</button>
+    </div>
+    <div class="char-list" id="charList"></div>
+    <p class="hint" id="charHint">还需要添加至少 2 个角色</p>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="backTo0">← 上一步</button>
+      <button class="btn btn-primary" id="toStep2" disabled>下一步 →</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Character Selection -->
+  <div class="panel" id="step2">
+    <h2>选择角色</h2>
+    <p class="subtitle">选择你要扮演的角色，AI将扮演其余角色</p>
+    <div class="select-grid" id="selectGrid"></div>
+    <div class="btn-row">
+      <button class="btn btn-secondary" id="backTo1">← 上一步</button>
+      <button class="btn btn-primary" id="startStory" disabled>开始故事 →</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Dialogue -->
+  <div class="panel" id="step3">
+    <div class="chat-wrapper">
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="输入你的对话或行动…">
+        <button class="btn btn-primary" id="sendBtn">发送</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- State ---
+  var currentStep = 0;
+  var characters = [];
+  var selectedCharIndex = -1;
+  var conversationHistory = [];
+  var isSending = false;
+
+  // --- DOM refs ---
+  var $steps = document.querySelectorAll('.panel');
+  var $dots = document.querySelectorAll('.step-dot');
+  var $charList = document.getElementById('charList');
+  var $selectGrid = document.getElementById('selectGrid');
+  var $chatMessages = document.getElementById('chatMessages');
+  var $toast = document.getElementById('toast');
+
+  // --- Navigation ---
+  function goToStep(n) {
+    currentStep = n;
+    $steps.forEach(function(p, i) {
+      p.classList.toggle('active', i === n);
+    });
+    $dots.forEach(function(d, i) {
+      d.className = 'step-dot';
+      if (i < n) d.classList.add('done');
+      if (i === n) d.classList.add('active');
+    });
+    // Hide API section in chat step
+    document.getElementById('apiSection').style.display = n === 3 ? 'none' : '';
+  }
+
+  // Step 0 → 1
+  document.getElementById('toStep1').addEventListener('click', function() {
+    var bg = document.getElementById('storyBg').value.trim();
+    if (!bg) { showToast('请输入故事背景设定'); return; }
+    goToStep(1);
+  });
+
+  // Step 1 → 0
+  document.getElementById('backTo0').addEventListener('click', function() { goToStep(0); });
+
+  // Step 1 → 2
+  document.getElementById('toStep2').addEventListener('click', function() {
+    if (characters.length < 2) { showToast('请至少创建2个角色'); return; }
+    renderSelectGrid();
+    goToStep(2);
+  });
+
+  // Step 2 → 1
+  document.getElementById('backTo1').addEventListener('click', function() { goToStep(1); });
+
+  // Step 2 → 3 (start)
+  document.getElementById('startStory').addEventListener('click', function() {
+    if (selectedCharIndex < 0) { showToast('请选择一个角色'); return; }
+    var key = document.getElementById('apiKey').value.trim();
+    if (!key) { showToast('请先在 API 设置中输入 API 密钥'); return; }
+    goToStep(3);
+    startStoryChat();
+  });
+
+  // --- API toggle ---
+  document.getElementById('apiToggle').addEventListener('click', function() {
+    var panel = document.getElementById('apiPanel');
+    var arrow = document.getElementById('apiArrow');
+    panel.classList.toggle('open');
+    arrow.classList.toggle('open');
+  });
+
+  // --- Character Creation ---
+  document.getElementById('addChar').addEventListener('click', function() {
+    var name = document.getElementById('charName').value.trim();
+    var personality = document.getElementById('charPersonality').value.trim();
+    var appearance = document.getElementById('charAppearance').value.trim();
+    var abilities = document.getElementById('charAbilities').value.trim();
+    var background = document.getElementById('charBackground').value.trim();
+    if (!name) { showToast('请输入角色名称'); return; }
+    characters.push({ name: name, personality: personality, appearance: appearance, abilities: abilities, background: background });
+    clearCharForm();
+    renderCharList();
+  });
+
+  function clearCharForm() {
+    document.getElementById('charName').value = '';
+    document.getElementById('charPersonality').value = '';
+    document.getElementById('charAppearance').value = '';
+    document.getElementById('charAbilities').value = '';
+    document.getElementById('charBackground').value = '';
+  }
+
+  function renderCharList() {
+    $charList.innerHTML = '';
+    if (characters.length === 0) {
+      $charList.innerHTML = '<div class="empty">还没有角色，请添加</div>';
+    } else {
+      characters.forEach(function(c, i) {
+        var card = document.createElement('div');
+        card.className = 'card char-card';
+        var info = document.createElement('div');
+        info.className = 'info';
+        var nameEl = document.createElement('div');
+        nameEl.className = 'name';
+        nameEl.textContent = c.name;
+        info.appendChild(nameEl);
+        var meta = document.createElement('div');
+        meta.className = 'meta';
+        if (c.personality) { var s = document.createElement('span'); s.textContent = '性格: ' + c.personality; meta.appendChild(s); }
+        if (c.appearance) { var s = document.createElement('span'); s.textContent = '外貌: ' + c.appearance; meta.appendChild(s); }
+        if (c.abilities) { var s = document.createElement('span'); s.textContent = '能力: ' + c.abilities; meta.appendChild(s); }
+        info.appendChild(meta);
+        if (c.background) {
+          var bg = document.createElement('div');
+          bg.className = 'meta';
+          bg.style.marginTop = '0.25rem';
+          bg.textContent = c.background;
+          info.appendChild(bg);
+        }
+        card.appendChild(info);
+        var del = document.createElement('button');
+        del.className = 'btn btn-danger';
+        del.textContent = '删除';
+        del.addEventListener('click', function() {
+          characters.splice(i, 1);
+          if (selectedCharIndex === i) selectedCharIndex = -1;
+          else if (selectedCharIndex > i) selectedCharIndex--;
+          renderCharList();
+        });
+        card.appendChild(del);
+        $charList.appendChild(card);
+      });
+    }
+    var remaining = Math.max(0, 2 - characters.length);
+    var hint = document.getElementById('charHint');
+    hint.textContent = remaining > 0 ? '还需要添加至少 ' + remaining + ' 个角色' : '已满足最低要求，可以继续';
+    document.getElementById('toStep2').disabled = characters.length < 2;
+  }
+
+  renderCharList();
+
+  // --- Character Selection ---
+  function renderSelectGrid() {
+    $selectGrid.innerHTML = '';
+    characters.forEach(function(c, i) {
+      var card = document.createElement('div');
+      card.className = 'card select-card' + (i === selectedCharIndex ? ' selected' : '');
+      var badge = document.createElement('span');
+      badge.className = 'badge';
+      badge.textContent = '你的角色';
+      card.appendChild(badge);
+      var nameEl = document.createElement('div');
+      nameEl.className = 'name';
+      nameEl.textContent = c.name;
+      card.appendChild(nameEl);
+      var desc = document.createElement('div');
+      desc.className = 'desc';
+      var parts = [];
+      if (c.personality) parts.push(c.personality);
+      if (c.abilities) parts.push(c.abilities);
+      desc.textContent = parts.join(' · ') || '无描述';
+      card.appendChild(desc);
+      card.addEventListener('click', function() {
+        selectedCharIndex = i;
+        renderSelectGrid();
+      });
+      $selectGrid.appendChild(card);
+    });
+    document.getElementById('startStory').disabled = selectedCharIndex < 0;
+  }
+
+  // --- Chat ---
+  function addMessage(type, name, text) {
+    var el = document.createElement('div');
+    if (type === 'narrator') {
+      el.className = 'msg msg-narrator';
+      el.textContent = text;
+    } else if (type === 'user') {
+      el.className = 'msg msg-user';
+      var n = document.createElement('div');
+      n.className = 'msg-name';
+      n.textContent = name;
+      el.appendChild(n);
+      var t = document.createElement('div');
+      t.textContent = text;
+      el.appendChild(t);
+    } else {
+      el.className = 'msg msg-ai';
+      var n = document.createElement('div');
+      n.className = 'msg-name';
+      n.textContent = name;
+      el.appendChild(n);
+      var t = document.createElement('div');
+      t.textContent = text;
+      el.appendChild(t);
+    }
+    $chatMessages.appendChild(el);
+    $chatMessages.scrollTop = $chatMessages.scrollHeight;
+  }
+
+  function showLoading() {
+    var el = document.createElement('div');
+    el.className = 'msg msg-loading';
+    el.id = 'loadingMsg';
+    var textNode = document.createTextNode('AI 思考中');
+    el.appendChild(textNode);
+    var dotsSpan = document.createElement('span');
+    dotsSpan.className = 'loading-dots';
+    el.appendChild(dotsSpan);
+    $chatMessages.appendChild(el);
+    $chatMessages.scrollTop = $chatMessages.scrollHeight;
+  }
+
+  function hideLoading() {
+    var el = document.getElementById('loadingMsg');
+    if (el) el.remove();
+  }
+
+  function buildSystemPrompt() {
+    var storyBg = document.getElementById('storyBg').value.trim();
+    var playerChar = characters[selectedCharIndex];
+    var aiChars = characters.filter(function(_, i) { return i !== selectedCharIndex; });
+    var charDescs = characters.map(function(c, i) {
+      var role = i === selectedCharIndex ? '（玩家角色）' : '（AI控制）';
+      return c.name + role + '：性格=' + (c.personality || '无') + '，外貌=' + (c.appearance || '无') + '，能力=' + (c.abilities || '无') + '，背景=' + (c.background || '无');
+    }).join('\n');
+    return '你是一个互动故事的叙述者和角色扮演AI。\n\n' +
+      '【故事背景】\n' + storyBg + '\n\n' +
+      '【角色列表】\n' + charDescs + '\n\n' +
+      '【规则】\n' +
+      '1. 你扮演旁白（叙述者）以及所有AI控制的角色。\n' +
+      '2. 玩家扮演"' + playerChar.name + '"，你不要替玩家角色说话或做决定。\n' +
+      '3. 保持每个角色的性格一致。\n' +
+      '4. 旁白应推动故事发展、描述场景和气氛。\n' +
+      '5. 用中文回复。\n' +
+      '6. 你必须严格以下面的JSON格式回复，不要包含其他内容：\n' +
+      '{"narrator":"旁白文本","characters":[{"name":"角色名","dialogue":"该角色的对话或动作"}]}\n' +
+      '如果某个AI角色在当前轮次不需要说话，可以不包含该角色。\n' +
+      '不要在JSON外添加任何文本、代码块标记或解释。';
+  }
+
+  function buildMessages(userText) {
+    var msgs = [{ role: 'system', content: buildSystemPrompt() }];
+    conversationHistory.forEach(function(m) {
+      msgs.push(m);
+    });
+    if (userText !== null) {
+      var playerName = characters[selectedCharIndex].name;
+      var userMsg = { role: 'user', content: playerName + '：' + userText };
+      msgs.push(userMsg);
+    }
+    return msgs;
+  }
+
+  async function sendToAPI(userText) {
+    var apiUrl = document.getElementById('apiUrl').value.trim();
+    var apiKey = document.getElementById('apiKey').value.trim();
+    var model = document.getElementById('apiModel').value.trim();
+    if (!apiKey) { showToast('请在 API 设置中输入 API 密钥'); return; }
+    if (!apiUrl) { showToast('请输入 API 地址'); return; }
+
+    isSending = true;
+    updateSendButton();
+    showLoading();
+
+    var messages = buildMessages(userText);
+
+    // Record user message in history
+    if (userText !== null) {
+      var playerName = characters[selectedCharIndex].name;
+      conversationHistory.push({ role: 'user', content: playerName + '：' + userText });
+      addMessage('user', playerName, userText);
+    }
+
+    try {
+      var res = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + apiKey
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: messages,
+          temperature: 0.8
+        })
+      });
+
+      if (!res.ok) {
+        var errText = await res.text();
+        throw new Error('API 错误 (' + res.status + '): ' + (errText.length > 200 ? errText.substring(0, 200) + '...' : errText));
+      }
+
+      var data = await res.json();
+      var content = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content;
+      if (!content) throw new Error('API 返回了空的回复');
+
+      // Try to parse JSON - strip markdown code fences if present
+      var cleaned = content.trim();
+      if (cleaned.startsWith('```')) {
+        cleaned = cleaned.replace(/^```(?:json)?\s*/, '').replace(/\s*```$/, '');
+      }
+
+      var parsed;
+      try {
+        parsed = JSON.parse(cleaned);
+      } catch (e) {
+        throw new Error('AI 返回的格式无法解析为JSON。原始回复：' + (content.length > 200 ? content.substring(0, 200) + '...' : content));
+      }
+
+      // Record assistant response
+      conversationHistory.push({ role: 'assistant', content: content });
+
+      // Display narrator
+      if (parsed.narrator) {
+        addMessage('narrator', '', parsed.narrator);
+      }
+
+      // Display character dialogues
+      if (Array.isArray(parsed.characters)) {
+        parsed.characters.forEach(function(c) {
+          if (c.name && c.dialogue) {
+            addMessage('ai', c.name, c.dialogue);
+          }
+        });
+      }
+
+    } catch (err) {
+      showToast(err.message || '网络错误，请检查 API 设置');
+    } finally {
+      hideLoading();
+      isSending = false;
+      updateSendButton();
+    }
+  }
+
+  function updateSendButton() {
+    document.getElementById('sendBtn').disabled = isSending;
+    document.getElementById('chatInput').disabled = isSending;
+  }
+
+  function startStoryChat() {
+    conversationHistory = [];
+    $chatMessages.innerHTML = '';
+    // Send initial request with no user text to get the opening scene
+    sendToAPI(null);
+  }
+
+  // Send message
+  document.getElementById('sendBtn').addEventListener('click', function() {
+    var input = document.getElementById('chatInput');
+    var text = input.value.trim();
+    if (!text || isSending) return;
+    input.value = '';
+    sendToAPI(text);
+  });
+
+  document.getElementById('chatInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      document.getElementById('sendBtn').click();
+    }
+  });
+
+  // --- Toast ---
+  var toastTimer;
+  function showToast(msg) {
+    $toast.textContent = msg;
+    $toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function() {
+      $toast.classList.remove('show');
+    }, 3500);
+  }
+})();
+</script>
+</body>
+</html>
